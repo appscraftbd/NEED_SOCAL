@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/channel_lay"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        >
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0.5dp"-->
+        <!--            android:background="#1CD1D1D1"-->
+        <!--            />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:orientation="horizontal"
+            android:background="#05D1D1D1"
+            >
+
+            <ImageView
+                android:layout_width="41dp"
+                android:layout_height="41dp"
+                android:layout_marginLeft="2dp"
+                android:src="@drawable/channel_icone"
+                android:padding="3dp"
+                />
+            <View
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:background="#12141C"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="-3dp"
+                />
+
+
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingRight="5dp"
+                android:scrollbars="none"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"
+                        android:background="@drawable/post_bar"
+                        android:text="Nahid"
+                        android:gravity="center"/>
+
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

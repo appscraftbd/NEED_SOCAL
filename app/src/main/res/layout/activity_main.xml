@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12141C"
+    tools:context=".MainActivity">
+
+
+    <FrameLayout
+        android:id="@+id/framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/nav_bar"
+        android:layout_marginBottom="-20dp"
+        />
+
+
+
+
+
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/nav_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        android:backgroundTint="#11131B"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp"
+        >
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottpm_navigation_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#11131B"
+        app:itemHorizontalTranslationEnabled="true"
+        android:padding="5dp"
+        app:itemIconTint="@drawable/bottom_item_color"
+        app:labelVisibilityMode="unlabeled"
+        style="@style/Widget.MaterialComponents.BottomNavigationView"
+        app:menu="@menu/bottom_navigation_item" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+</RelativeLayout>
