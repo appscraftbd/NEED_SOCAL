@@ -108,29 +108,7 @@
                         layout="@layout/add_post_layout"
                         />  <include
                     layout="@layout/following_channel_layout"
-                    />  <include
-                    layout="@layout/post_layout"
-                    />  <include
-                    layout="@layout/post_layout"
                     />
-                    <include
-                        layout="@layout/post_layout"
-                        />
-                    <include
-                        layout="@layout/post_layout"
-                        />
-                    <include
-                        layout="@layout/post_layout"
-                        />
-                    <include
-                        layout="@layout/post_layout"
-                        />
-                    <include
-                        layout="@layout/post_layout"
-                        />
-                    <include
-                        layout="@layout/post_layout"
-                        />
 
                 </LinearLayout>
             </ScrollView>
