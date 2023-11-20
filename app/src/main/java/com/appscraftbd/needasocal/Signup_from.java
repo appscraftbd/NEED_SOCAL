@@ -4,6 +4,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -148,9 +150,9 @@ public class Signup_from extends AppCompatActivity {
                                     .show();
 
                         }else {
-                            Toast.makeText(Signup_from.this,"no use",Toast.LENGTH_SHORT).show();
                             ////////////
                             user_info_add();
+
 
                         }
 
@@ -211,9 +213,18 @@ public class Signup_from extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-//                        int nuber = Integer.parseInt(response);
-//                        QUERY_NUMBER = nuber;
-
+                        new AlertDialog.Builder(Signup_from.this)
+                                .setTitle("NEED")
+                                .setMessage("Your Account create Successfully")
+                                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Intent getbeforepage = new Intent(Signup_from.this, Login_from.class);
+                                        startActivity(getbeforepage);
+                                    }
+                                })
+                                .setCancelable(false)
+                                .show();
 
 
                     }
