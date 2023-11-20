@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -21,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 
 public class Signup_from extends AppCompatActivity {
 
+    LottieAnimationView lottieAnimationView;
     TextView create_btn;
     EditText username_id;
     EditText username,first_name,last_name,birthday,birthmonth,birthyear,mobile,password,confirmpassword;
@@ -43,13 +45,16 @@ public class Signup_from extends AppCompatActivity {
         birthmonth = findViewById(R.id.birth_month);
         birthyear = findViewById(R.id.birth_year);
         mobile = findViewById(R.id.mobile_number);
-        password = findViewById(R.id.register_password);
+        password = findViewById(R.id.password);
         confirmpassword = findViewById(R.id.confirm_password);
+
+        lottieAnimationView = findViewById(R.id.loading);
 
 
         create_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 uid = username_id.getText().toString();
                 sfirst_name = first_name.getText().toString();
@@ -90,6 +95,7 @@ public class Signup_from extends AppCompatActivity {
 
 
 
+                    ///password confarmation
                 if(spassword.contains(sconfirm_password)){
 //                    Toast.makeText(Signup_from.this,"password",Toast.LENGTH_SHORT).show();
                     if(sconfirm_password.contains(spassword)){
@@ -107,15 +113,15 @@ public class Signup_from extends AppCompatActivity {
                         confirmpassword.setText("");
                         password.setError("No Match");
                         confirmpassword.setError("No Match");
+
                     }
                 }else {
                     password.setText("");
                     confirmpassword.setText("");
                     password.setError("No Match");
                     confirmpassword.setError("No Match");
+
                 }
-
-
 
 
                 }
@@ -134,6 +140,7 @@ public class Signup_from extends AppCompatActivity {
     }
     ////.....................................................................................................................................
     public void username_query(String uid ){
+        lottieAnimationView.setVisibility(View.VISIBLE);
         String url = "https://mdnahidhossen.com/need/username_query.php?uid="+uid;
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -148,6 +155,7 @@ public class Signup_from extends AppCompatActivity {
                                     .setTitle("NEED")
                                     .setMessage("This Username already uesd!")
                                     .show();
+                            lottieAnimationView.setVisibility(View.GONE);
 
                         }else {
                             ////////////
@@ -225,12 +233,17 @@ public class Signup_from extends AppCompatActivity {
                                 })
                                 .setCancelable(false)
                                 .show();
-
+                        lottieAnimationView.setVisibility(View.GONE);
 
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                new AlertDialog.Builder(Signup_from.this)
+                        .setMessage("")
+                        .show();
+                lottieAnimationView.setVisibility(View.GONE);
+
 
             }
         });

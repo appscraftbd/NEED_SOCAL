@@ -115,7 +115,7 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/grey"
                 android:textCursorDrawable="@drawable/edit_text_cursor"
-                android:id="@+id/register_password"
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginLeft="20dp"
@@ -275,6 +275,17 @@
                 />
 
         </androidx.cardview.widget.CardView>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:visibility="gone"
+            android:layout_marginTop="50dp"
+            android:id="@+id/loading"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            app:lottie_rawRes="@raw/loading"
+            app:lottie_autoPlay="true"
+            android:layout_gravity="center"
+            app:lottie_loop="true"/>
 
 
 

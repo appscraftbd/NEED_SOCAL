@@ -28,22 +28,22 @@
 <!--        android:textSize="14dp"/>-->
 
     <EditText
-        android:layout_marginTop="70dp"
+        android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:background="@drawable/post_bar"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="70dp"
         android:layout_marginRight="20dp"
+        android:background="@drawable/post_bar"
         android:hint=" Username"
-        android:textColorHint="@color/grey"
+        android:inputType="text"
         android:paddingLeft="15dp"
-        android:textSize="14dp"
-        android:textColor="@color/white"
         android:scrollbars="horizontal"
         android:scrollHorizontally="true"
-        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/grey"
         android:textCursorDrawable="@drawable/edit_text_cursor"
-        />
+        android:textSize="14dp" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -65,7 +65,7 @@
         <EditText
             android:textColorHint="@color/grey"
             android:textCursorDrawable="@drawable/edit_text_cursor"
-            android:id="@+id/register_password"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginLeft="20dp"
@@ -74,22 +74,23 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="16dp"
+            android:textColor="@color/white"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
+        android:id="@+id/forgot_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
-        android:textSize="14dp"
-        android:textColor="#C1C1C1"
-        android:text="Forgot password"
         android:layout_marginTop="9dp"
-        android:textStyle="bold"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
+        android:text="Forgot password"
+        android:textColor="#C1C1C1"
+        android:textSize="14dp"
 
-        />
+        android:textStyle="bold" />
 
 
 
@@ -151,6 +152,18 @@
 
 
     </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+
+        android:visibility="gone"
+        android:layout_marginTop="50dp"
+        android:id="@+id/loading"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        app:lottie_rawRes="@raw/loading"
+        app:lottie_autoPlay="true"
+        android:layout_gravity="center"
+        app:lottie_loop="true"/>
 
 
 

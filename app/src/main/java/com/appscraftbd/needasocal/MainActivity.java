@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -16,6 +17,8 @@ import com.google.android.material.navigation.NavigationBarView;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    public static String user_id="";
+    int onback_count=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
         ////android rotating off
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
         bottomNavigationView = findViewById(R.id.bottpm_navigation_id);
 
-        Intent sign = new Intent(MainActivity.this, Login_from.class);
-        startActivity(sign);
+
+
+        ///////////////////////
+        if(user_id.length()==0){
+            Intent sign = new Intent(MainActivity.this, Login_from.class);
+            startActivity(sign);
+        }
 
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -86,5 +93,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+
+        onback_count = onback_count+1;
+        if(onback_count==1){
+            Toast.makeText(MainActivity.this,"exit",Toast.LENGTH_SHORT).show();
+        }else {
+            finishAffinity();
+        }
     }
 }
