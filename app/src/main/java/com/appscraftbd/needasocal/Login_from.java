@@ -49,11 +49,19 @@ public class Login_from extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                lottieAnimationView.setVisibility(View.VISIBLE);
-
                 suid = username.getText().toString();
-                //////
-                username_query(suid);
+                spass = password.getText().toString();
+
+                if (suid.length()==0){
+                    username.setError("Enter Username");
+                }if (spass.length()==0){
+                    password.setError("Enter Password");
+                }else {
+
+                    lottieAnimationView.setVisibility(View.VISIBLE);
+                    username_query(suid);
+                }
+
             }
         });
 
