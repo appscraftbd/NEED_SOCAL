@@ -34,7 +34,7 @@
         android:background="@drawable/post_bar"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint=" @username"
+        android:hint=" Username"
         android:textColorHint="@color/grey"
         android:paddingLeft="15dp"
         android:textSize="14dp"
