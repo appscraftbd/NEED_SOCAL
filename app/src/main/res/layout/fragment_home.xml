@@ -110,6 +110,8 @@
                     layout="@layout/following_channel_layout"
                     />
 
+                    <include
+                        layout="@layout/post_layout"/>
                 </LinearLayout>
             </ScrollView>
 

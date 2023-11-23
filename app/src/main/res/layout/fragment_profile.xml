@@ -1,15 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#12141C"
+    android:orientation="vertical"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/post_bar"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/profile"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="80dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MD. Nahid hossen"
+                android:textColor="#CCCCCC"
+                android:textSize="18dp"
+                android:paddingRight="10dp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+
+                />
+            <TextView
+                android:id="@+id/date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mdnahidhossen"
+                android:textColor="@color/grey"
+                android:layout_marginTop="1dp"
+                android:textSize="14dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:background="@drawable/follower_bar"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="-75dp"
+            android:gravity="center_horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10k"
+                android:textStyle="italic"
+                android:textColor="#CCCCCC"
+                android:layout_marginTop="10dp"
+                android:textSize="11dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Follower"
+                android:textStyle="italic"
+                android:layout_marginTop="-2dp"
+                android:textColor="#CCCCCC"
+                android:textSize="10dp"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="আমি একটি অ্যাপ তৈরি শুরু করেছি।  যা কিছুটা socal app এর মতো। কিন্তু এটা হবে e learn অ্যাপ যেখানে সবাই, সবাইকে সাহায্য করবে।"
+            android:textColor="#D3D3D3"
+            android:textSize="13dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="-10dp"
+            android:paddingRight="30dp"
+            />
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+    <include
+        layout="@layout/post_layout"/>
+    <include
+        layout="@layout/post_layout"/>
+
+
+
+
+
+</LinearLayout>
