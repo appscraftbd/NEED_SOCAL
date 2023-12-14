@@ -10,12 +10,14 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.google.android.material.appbar.AppBarLayout;
 
 
 public class HomeFragment extends Fragment {
+
 
 
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -31,6 +33,9 @@ public class HomeFragment extends Fragment {
         // Set the background color for the progress circle
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.white));
         swipeRefreshLayout.setProgressBackgroundColorSchemeColor(R.color.black);
+
+
+
 
 
 

@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.NEEDASocal" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/navi_color</item>
+         <item name="colorPrimary">#12141C</item>
 
         <item name="android:navigationBarColor">@color/navi_color</item>
 

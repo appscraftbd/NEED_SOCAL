@@ -231,21 +231,21 @@
 
 
         <EditText
-            android:id="@+id/mobile_number"
+            android:id="@+id/gmail_id"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:background="@drawable/post_bar"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:hint=" Mobile number"
+            android:hint=" Gmail"
             android:textColorHint="@color/grey"
             android:paddingLeft="15dp"
             android:textSize="14dp"
             android:textColor="@color/white"
             android:scrollbars="horizontal"
             android:scrollHorizontally="true"
-            android:inputType="number"
+            android:inputType="text"
             android:textCursorDrawable="@drawable/edit_text_cursor"
             />
 
