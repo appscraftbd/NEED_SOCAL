@@ -252,13 +252,13 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="10dp"
             android:layout_weight="1"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="3dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:backgroundTint="#12141C"
+            android:backgroundTint="#181E37"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
 
@@ -282,8 +282,8 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:backgroundTint="#12141C"
-            app:cardCornerRadius="8dp"
+            android:backgroundTint="#181E37"
+            app:cardCornerRadius="10dp"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             >

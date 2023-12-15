@@ -32,7 +32,7 @@ public class SQL_LITE extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         try {
-            Toast.makeText(context,"onCreate is called",Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context,"onCreate is called",Toast.LENGTH_SHORT).show();
             db.execSQL(CREATE_TABLE);
 
 
