@@ -242,39 +242,60 @@
     </LinearLayout>
 <!--    button bar-->
     <LinearLayout
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:layout_marginBottom="10dp"
         android:weightSum="2"
         android:layout_height="50dp">
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            app:cardCornerRadius="8dp"
+            android:layout_weight="1"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#12141C"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+
+
+            >
         <TextView
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:layout_marginRight="10dp"
             android:background="@drawable/follow_and_edit_btn"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginLeft="15dp"
             android:text="Profile Edit"
             android:textColor="#D3FFFFFF"
-            android:layout_weight="1"
             />
-        <ImageView
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:src="@drawable/profile_more_icone"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:layout_marginRight="10dp"
-            android:background="@drawable/follow_and_edit_btn"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:padding="10dp"
+            android:backgroundTint="#12141C"
+            app:cardCornerRadius="8dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            >
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/profile_more_icone"
+            android:background="@drawable/follow_and_edit_btn"
+            android:padding="10dp"
             />
+        </androidx.cardview.widget.CardView>
 
 
     </LinearLayout>

@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -20,10 +22,13 @@ public class MainActivity extends AppCompatActivity {
     public static String user_id="";
     int onback_count=0;
 
+    String user,pass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         ////android rotating off
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -31,12 +36,39 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        /////////MY sql lite database create
+        SQL_LITE sqlLite = new SQL_LITE(MainActivity.this);
+        SQLiteDatabase sqLiteDatabase = sqlLite.getWritableDatabase();
+
+
+        ///////user search
+        Cursor result = sqlLite.data_result();
+        if(result.getCount() ==0){
+            Intent sign = new Intent(MainActivity.this, Login_from.class);
+            startActivity(sign);
+        }else {
+            /// data read
+            StringBuffer stringBuffer = new StringBuffer();
+            StringBuffer stringBuffer1 = new StringBuffer();
+            while (result.moveToNext()) {
+                stringBuffer.append(result.getString(1));
+                stringBuffer1.append(result.getString(2));
+                this.user = "" + stringBuffer;
+                this.pass = "" + stringBuffer1;
+                break;
+            }
+
+        }
+
+
+
         ///////////////////////
-        if(user_id.length()==0){
+        if(user.length() <=3 ){
             Intent sign = new Intent(MainActivity.this, Login_from.class);
             startActivity(sign);
         }
 
+        AboutFragment aboutFragment = new AboutFragment();
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

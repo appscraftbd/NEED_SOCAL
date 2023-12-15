@@ -117,7 +117,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#11131B"
+                        android:background="#12141C"
                         android:layout_marginBottom="10dp"
                         >
                         <View

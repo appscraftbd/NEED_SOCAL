@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -139,8 +140,22 @@ public class Login_from extends AppCompatActivity {
                             //////
                             lottieAnimationView.setVisibility(View.GONE);
                             MainActivity.user_id=suid;
-                            Intent main_class = new Intent(Login_from.this,MainActivity.class);
-                            startActivity(main_class);
+
+
+                            SQL_LITE sqlLite = new SQL_LITE(getApplicationContext());
+                            Cursor result = sqlLite.data_result();
+
+
+                            if(result.getCount() ==0) {
+                                long rowid = sqlLite.data_insert(uid,pass);
+                                Intent main_class = new Intent(Login_from.this,MainActivity.class);
+                                startActivity(main_class);
+
+                            }
+                                sqlLite.data_update(uid,pass);
+                                Intent main_class = new Intent(Login_from.this,MainActivity.class);
+                                startActivity(main_class);
+
 
 
                         }else {

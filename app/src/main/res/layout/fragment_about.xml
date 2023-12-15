@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#12141C"
+    android:orientation="vertical"
     tools:context=".AboutFragment">
-
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Setting"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#E2FFFFFF"
+        android:textSize="20dp"
+        />
 
-</FrameLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:backgroundTint="#12141C"
+        app:cardCornerRadius="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/follow_and_edit_btn"
+            android:text="LogOut"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#D3FFFFFF"
+            />
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>

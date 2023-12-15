@@ -92,6 +92,8 @@ public class Signup_from extends AppCompatActivity {
         ////EditText Null Chack////
         if(uid.length()==0){
             username_id.setError("username");
+        } else if (uid.length()<5) {
+            username_id.setError("Minimum 6 character");
         } else if (sfirst_name.length()==0) {
             first_name.setError("firstname");
         }else if (slast_name.length()==0) {
@@ -106,6 +108,8 @@ public class Signup_from extends AppCompatActivity {
             gmail.setError("gmail");
         }else if (spassword.length()==0) {
             password.setError("password");
+        } else if (spassword.length()<5) {
+            password.setError("Minimum 6 character");
         } else if (sconfirm_password.length()==0) {
             confirmpassword.setError("confirm password");
         } else if (date_of_birth.length()<0) {
