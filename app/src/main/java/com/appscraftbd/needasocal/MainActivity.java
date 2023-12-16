@@ -43,30 +43,35 @@ public class MainActivity extends AppCompatActivity {
 
         ///////user search
         Cursor result = sqlLite.data_result();
-        if(result.getCount() ==0){
+
+        try{
+            if(result.getCount() ==0){
+                Intent sign = new Intent(MainActivity.this, Login_from.class);
+                startActivity(sign);
+            } else {
+                /// data read
+                StringBuffer stringBuffer = new StringBuffer();
+                StringBuffer stringBuffer1 = new StringBuffer();
+                while (result.moveToNext()) {
+                    stringBuffer.append(result.getString(1));
+                    stringBuffer1.append(result.getString(2));
+                    this.user = "" + stringBuffer;
+                    this.pass = "" + stringBuffer1;
+                    break;
+                }
+            }
+        }catch ( Exception e)
+        {
+        }
+
+
+        try {
+            ///////////////
+         if (user.length() <=3 ) {
             Intent sign = new Intent(MainActivity.this, Login_from.class);
             startActivity(sign);
         }else {
-            /// data read
-            StringBuffer stringBuffer = new StringBuffer();
-            StringBuffer stringBuffer1 = new StringBuffer();
-            while (result.moveToNext()) {
-                stringBuffer.append(result.getString(1));
-                stringBuffer1.append(result.getString(2));
-                this.user = "" + stringBuffer;
-                this.pass = "" + stringBuffer1;
-                break;
-            }
 
-        }
-
-
-
-        ///////////////////////
-        if(user.length() <=3 ){
-            Intent sign = new Intent(MainActivity.this, Login_from.class);
-            startActivity(sign);
-        }
 
         AboutFragment aboutFragment = new AboutFragment();
 
@@ -120,9 +125,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+         }//else..........
+        }catch (Exception e){
 
-
-
+        }
 
 
     }

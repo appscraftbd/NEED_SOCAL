@@ -145,17 +145,21 @@ public class Login_from extends AppCompatActivity {
                             SQL_LITE sqlLite = new SQL_LITE(getApplicationContext());
                             Cursor result = sqlLite.data_result();
 
+                            try {
+                                if(result.getCount() ==0) {
+                                    long rowid = sqlLite.data_insert(uid,pass);
+                                    Intent main_class = new Intent(Login_from.this,MainActivity.class);
+                                    startActivity(main_class);
 
-                            if(result.getCount() ==0) {
-                                long rowid = sqlLite.data_insert(uid,pass);
-                                Intent main_class = new Intent(Login_from.this,MainActivity.class);
-                                startActivity(main_class);
+                                }else {
+                                    sqlLite.data_update(uid,pass);
+                                    Intent main_class = new Intent(Login_from.this,MainActivity.class);
+                                    startActivity(main_class);
+
+                                }
+                            }catch (Exception e){
 
                             }
-                                sqlLite.data_update(uid,pass);
-                                Intent main_class = new Intent(Login_from.this,MainActivity.class);
-                                startActivity(main_class);
-
 
 
                         }else {
