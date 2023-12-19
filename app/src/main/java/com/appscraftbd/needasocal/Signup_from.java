@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -24,10 +23,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.appscraftbd.needasocal.Login.Login_from;
 
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Signup_from extends AppCompatActivity {
 

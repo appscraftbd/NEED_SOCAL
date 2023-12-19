@@ -19,7 +19,7 @@
             android:name=".Signup_from"
             android:exported="false" />
         <activity
-            android:name=".Login_from"
+            android:name=".Login.Login_from"
             android:exported="false" />
 
         <activity

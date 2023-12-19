@@ -2,28 +2,37 @@ package com.appscraftbd.needasocal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
+import com.appscraftbd.needasocal.Login.Login_from;
+import com.appscraftbd.needasocal.fragment.AboutFragment;
+import com.appscraftbd.needasocal.fragment.GlobalFragment;
+import com.appscraftbd.needasocal.fragment.HomeFragment;
+import com.appscraftbd.needasocal.fragment.NotificationFragment;
+import com.appscraftbd.needasocal.fragment.ProfileFragment;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    BottomNavigationView bottomNavigationView;
-    public static String user_id="";
-    int onback_count=0;
+    int onback_count = 0;
+    String user, pass;
+    TabLayout tabLayout;
+    ViewPager2 viewPager2;
+    int tab_count = 0;
+    int tab_possition = 0;
 
-    String user,pass;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
         ////android rotating off
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        bottomNavigationView = findViewById(R.id.bottpm_navigation_id);
 
-
+        viewPager2 = findViewById(R.id.viewpage);
+        tabLayout = findViewById(R.id.tablayout);
 
         /////////MY sql lite database create
         SQL_LITE sqlLite = new SQL_LITE(MainActivity.this);
@@ -44,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
         ///////user search
         Cursor result = sqlLite.data_result();
 
-        try{
-            if(result.getCount() ==0){
+        try {
+            if (result.getCount() == 0) {
                 Intent sign = new Intent(MainActivity.this, Login_from.class);
                 startActivity(sign);
             } else {
@@ -60,88 +69,156 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
             }
-        }catch ( Exception e)
-        {
+        } catch (Exception e) {
         }
-
 
         try {
             ///////////////
-         if (user.length() <=3 ) {
-            Intent sign = new Intent(MainActivity.this, Login_from.class);
-            startActivity(sign);
-        }else {
+            if (user.length() <= 3) {
+                Intent sign = new Intent(MainActivity.this, Login_from.class);
+                startActivity(sign);
+            } else {
+
+                ///////////////////
+                tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+                    @Override
+                    public void onTabSelected(TabLayout.Tab tab) {
+
+                        if (tab.getPosition() ==0){
+                            tab_count = 0;
+                            tab_possition = 1;
+                            viewPager2.setCurrentItem(tab.getPosition());
+
+                        } else if (tab.getPosition()==1) {
+                            tab_count = 0;
+                            tab_possition = 2;
+                            viewPager2.setCurrentItem(tab.getPosition());
+
+                        } else if (tab.getPosition()==2) {
+                            tab_count = 0;
+                            tab_possition = 3;
+                            viewPager2.setCurrentItem(tab.getPosition());
+
+                        } else if (tab.getPosition()==3) {
+                            tab_count = 0;
+                            tab_possition = 4;
+                            viewPager2.setCurrentItem(tab.getPosition());
+
+                        } else if (tab.getPosition()==4) {
+                            tab_count = 0;
+                            tab_possition = 5;
+                            viewPager2.setCurrentItem(tab.getPosition());
+                        }
+
+                    }
+
+                    @Override
+                    public void onTabUnselected(TabLayout.Tab tab) {
+
+                    }
+
+                    @Override
+                    public void onTabReselected(TabLayout.Tab tab) {
+
+                        if (tab.getPosition()==0){
+                            if(tab_count >2){
+                                HomeFragment homeFragment = new HomeFragment();
+                                homeFragment.homeRefreshing();
+                            }
+                            tab_count = tab_count+2;
+                        }else if (tab.getPosition()==1) {
+                            if(tab_count >2){
+                                Toast.makeText(MainActivity.this,"global",Toast.LENGTH_SHORT).show();
+                            }
+                            tab_count = tab_count+2;
+                        }
 
 
-        AboutFragment aboutFragment = new AboutFragment();
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.framelayout, new HomeFragment());
-        fragmentTransaction.commit();
-
-        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.homeitem){
-
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.add(R.id.framelayout, new HomeFragment());
-                    fragmentTransaction.commit();
+                    }
+                });
 
 
-                } else if (item.getItemId() == R.id.globalitem) {
 
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.add(R.id.framelayout, new GlobalFragment());
-                    fragmentTransaction.commit();
 
-                }else if (item.getItemId() == R.id.profileitem) {
+                viewPager2.setAdapter(new FragmentStateAdapter(MainActivity.this) {
+                    @NonNull
+                    @Override
+                    public Fragment createFragment(int position) {
 
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.add(R.id.framelayout, new ProfileFragment());
-                    fragmentTransaction.commit();
 
-                }else if (item.getItemId() == R.id.notificationitem) {
+                        switch (position){
 
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.add(R.id.framelayout, new NotificationFragment());
-                    fragmentTransaction.commit();
+                            case (0):
+                                tab_count = 2;
+                                tab_possition = 1;
+                                return new HomeFragment();
 
-                }else {
+                            case (1):
 
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.add(R.id.framelayout, new AboutFragment());
-                    fragmentTransaction.commit();
+                                tab_count = 0;
+                                tab_possition = 2;
+                                return new GlobalFragment();
 
-                }
+                            case (2):
+                                tab_count = 0;
+                                tab_possition = 3;
+                                return new ProfileFragment();
+                            case (3):
 
-                return true;
+                                tab_count = 0;
+                                tab_possition = 4;
+                                return new NotificationFragment();
+                            case (4):
+
+                                tab_count = 0;
+                                tab_possition = 5;
+                                return new AboutFragment();
+
+                            default:
+                                tab_count = 2;
+                                tab_possition = 1;
+                                return new HomeFragment();
+
+                        }
+                    }
+
+                    @Override
+                    public int getItemCount() {
+                        return 5;
+                    }
+
+                });
+
+                viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+                    @Override
+                    public void onPageSelected(int position) {
+                        super.onPageSelected(position);
+                        tabLayout.getTabAt(position).select();
+
+                    }
+                });
+
+
+
             }
-        });
-
-         }//else..........
         }catch (Exception e){
 
         }
-
-
     }
+
     ///////////////////////////////////////////////////////////////////////////////////////////
+
+
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
 
-        onback_count = onback_count+1;
-        if(onback_count==1){
-            Toast.makeText(MainActivity.this,"exit",Toast.LENGTH_SHORT).show();
+        if(tab_possition >1){
+            tab_count = 0;
+            tab_count = tab_count + 4;
+            viewPager2.setCurrentItem(0);
         }else {
-            finishAffinity();
+            super.onBackPressed();
         }
     }
 }
