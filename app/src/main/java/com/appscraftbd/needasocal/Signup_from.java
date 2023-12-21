@@ -25,6 +25,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.appscraftbd.needasocal.Login.Login_from;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Random;
 
 public class Signup_from extends AppCompatActivity {
@@ -84,6 +86,18 @@ public class Signup_from extends AppCompatActivity {
         sgmail = gmail.getText().toString();
         spassword = password.getText().toString();
         sconfirm_password = confirmpassword.getText().toString();
+
+        try {
+            spassword = URLEncoder.encode(spassword,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            sconfirm_password = URLEncoder.encode(sconfirm_password,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
 
         String date_of_birth = sbirthday+"/"+sbirthmonth+"/"+sbirthyear;
 
@@ -282,6 +296,12 @@ public class Signup_from extends AppCompatActivity {
         sbirthyear = birthyear.getText().toString();
         sgmail = gmail.getText().toString();
         spassword = password.getText().toString();
+
+        try {
+            spassword = URLEncoder.encode(spassword,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
 
         String date_of_birth = sbirthday+"/"+sbirthmonth+"/"+sbirthyear;
 

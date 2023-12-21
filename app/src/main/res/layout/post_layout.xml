@@ -111,24 +111,35 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="38dp"
+                    android:layout_height="41dp"
                     android:background="@drawable/post_bar"
                     android:layout_marginRight="-40dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="13dp"
                     android:layout_marginLeft="20dp"
                     android:orientation="horizontal"
                     android:layout_marginBottom="10dp"
                     >
 
 
-                    <ImageView
-                        android:id="@+id/like_btn"
+<!--                    <ImageView-->
+<!--                        android:id="@+id/like_btn"-->
+<!--                        android:layout_width="25dp"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:src="@drawable/like_icone"-->
+<!--                        android:layout_marginLeft="15dp"-->
+<!--                        android:layout_centerVertical="true"-->
+<!--                        />-->
+
+                    <ToggleButton
+                        android:id="@+id/likeButton"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/like_icone"
-                        android:layout_marginLeft="15dp"
+                        android:textOff=""
+                        android:textOn=""
+                        android:background="#00FFFFFF"
                         android:layout_centerVertical="true"
-                        />
+                        android:layout_marginLeft="15dp"
+                        tools:ignore="MissingConstraints" />
 
 
                     <TextView
@@ -138,7 +149,7 @@
                         android:text=" 10M"
                         android:textColor="@color/grey"
                         android:layout_marginRight="30dp"
-                        android:layout_toRightOf="@+id/like_btn"
+                        android:layout_toRightOf="@+id/likeButton"
                         android:textSize="15dp"
                         android:layout_marginLeft="5dp"
                         android:layout_centerVertical="true"
@@ -148,7 +159,7 @@
                         android:id="@+id/comment_btn"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/comment_icone"
+                        android:src="@drawable/ic_comment"
                         android:layout_marginLeft="120dp"
                         android:layout_centerVertical="true"
                         />
@@ -169,7 +180,7 @@
                         android:id="@+id/share_btn"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/share_icone"
+                        android:src="@drawable/ic_share"
                         android:layout_marginLeft="210dp"
                         android:layout_centerVertical="true"
                         />

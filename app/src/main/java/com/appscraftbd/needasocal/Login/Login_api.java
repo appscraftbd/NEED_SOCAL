@@ -17,6 +17,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.appscraftbd.needasocal.SQL_LITE;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 public class Login_api {
 
     Context context;
@@ -33,6 +36,13 @@ public class Login_api {
 
         String suid = username.getText().toString();
         String spass = password.getText().toString();
+
+        try {
+            spass = URLEncoder.encode(spass,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+
 
         user_find_out(suid,spass);
     }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#12141C"
+    tools:context=".PostEdit">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:src="@drawable/profile"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MD. Nahid Hossen"
+                    android:textColor="#CCCCCC"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+
+                    />
+                <TextView
+                    android:id="@+id/date_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A new post"
+                    android:textColor="@color/grey"
+                    android:textSize="11sp"/>
+
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:src="@drawable/ic_back"
+                android:layout_marginLeft="-50dp"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginLeft="64dp"
+        android:hint="same text"
+        android:textColorHint="@color/grey"
+        android:gravity="start"
+        android:background="@drawable/post_bar"
+        android:layout_marginRight="20dp"
+        android:textSize="14dp"
+        android:padding="10dp"
+        android:textColor="#CCCCCC"
+        android:layout_marginTop="6dp"
+        />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginLeft="67dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#12141C"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:text="Post"
+            android:textSize="15dp"
+            android:textColor="#CCCCCC"
+            android:background="#95181C37"
+            />
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
