@@ -38,6 +38,7 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
      public static SwipeRefreshLayout swipeRefreshLayout;
      ImageView uploard_post;
+     public static int post_text_line_count=0;
 
     @SuppressLint({"ResourceAsColor", "MissingInflatedId"})
     @Override
@@ -96,12 +97,13 @@ public class HomeFragment extends Fragment {
 
         public class MyviewHolder extends RecyclerView.ViewHolder{
 
-            TextView post_text;
+            TextView post_text,tamp_post;
 
             public MyviewHolder(@NonNull View itemView) {
                 super(itemView);
 
                 post_text = itemView.findViewById(R.id.post_text);
+                tamp_post = itemView.findViewById(R.id.tamp_post_text);
                 ToggleButton likeButton = itemView.findViewById(R.id.likeButton);
 
 
@@ -116,11 +118,49 @@ public class HomeFragment extends Fragment {
                         "            throw new RuntimeException(e);\n" +
                         "        }\n---->";
 
-                CodeIdentifyANDaction codeIdentifyANDaction = new CodeIdentifyANDaction();
-                codeIdentifyANDaction.inANDout(getContext(),text_text,post_text);
+//                tamp_post.setText(text_text);
+//                tamp_post.post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        int lineCount = tamp_post.getLineCount();
+//                        post_text_line_count = lineCount;
+//                        // Use lineCount here
+//                    }
+//                });
+//                tamp_post.setText("");
+//
+//                ToggleButton readmore = itemView.findViewById(R.id.readmore);
+//
+//
+//                CodeIdentifyANDaction codeIdentifyANDaction = new CodeIdentifyANDaction();
+////                codeIdentifyANDaction.inANDout(getContext(),text_text,post_text);
+//
+//                if(post_text_line_count>5){
+//                    readmore.setVisibility(VISIBLE);
+//                    readmore.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//                        @Override
+//                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                            if (isChecked) {
+//                                post_text.setLines(5);
+//                                codeIdentifyANDaction.inANDout(getContext(),text_text,post_text);
+//
+//                            } else {
+//                                post_text.setLines(post_text_line_count);
+//                                codeIdentifyANDaction.inANDout(getContext(),text_text,post_text);
+//
+//                            }
+//                        }
+//                    });
+//
+//
+//                }else {
+//                    readmore.setVisibility(GONE);
+//                }
 
 
-                likeButton.setButtonDrawable(R.drawable.ic_like);
+
+                
+//                likeButton.setButtonDrawable(R.drawable.ic_like);
                 likeButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
