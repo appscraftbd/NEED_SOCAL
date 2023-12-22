@@ -104,7 +104,7 @@ public class CodeIdentifyANDaction {
                 };
 
 
-                spannableString.setSpan(clickableSpan, f1, f3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                spannableString.setSpan(clickableSpan, f1-1, f3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 
 
@@ -135,7 +135,7 @@ public class CodeIdentifyANDaction {
 
                     }
                 };
-                spannableString.setSpan(clickableSpan, f1, f3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                spannableString.setSpan(clickableSpan, f1-1, f3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
             }
         }

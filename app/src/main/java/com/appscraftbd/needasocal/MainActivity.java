@@ -24,7 +24,7 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    int onback_count = 0;
+
     String user, pass;
     TabLayout tabLayout;
     ViewPager2 viewPager2;

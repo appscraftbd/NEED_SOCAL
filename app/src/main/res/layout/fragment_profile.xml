@@ -7,318 +7,318 @@
     android:background="#12141C"
     tools:context=".fragment.ProfileFragment">
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical"-->
-<!--        >-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
 
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_marginLeft="10dp"-->
-<!--        android:layout_marginRight="10dp"-->
-<!--        android:layout_marginTop="20dp">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
 
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
 
-<!--        >-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            >-->
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
 
-<!--        <de.hdodenhof.circleimageview.CircleImageView-->
-<!--            xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--            android:id="@+id/profile_image"-->
-<!--            android:layout_width="60dp"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:src="@drawable/profile"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            />-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/profile"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            />
 
-<!--            <View-->
-<!--                android:layout_width="1dp"-->
-<!--                android:layout_height="5dp"-->
-<!--                android:background="@color/grey"-->
-<!--                android:layout_marginLeft="40dp"-->
-<!--                />-->
-<!--        </LinearLayout>-->
-
-
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="90dp"-->
-<!--            android:orientation="vertical">-->
-<!--            <TextView-->
-<!--                android:id="@+id/username"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="MD. NAHID HOSSEN"-->
-<!--                android:textColor="#CCCCCC"-->
-<!--                android:textSize="17dp"-->
-<!--                android:paddingRight="10dp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:layout_marginTop="6dp"-->
-
-<!--                />-->
-<!--            <TextView-->
-<!--                android:id="@+id/date_tv"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="mdnahidhossen"-->
-<!--                android:textColor="@color/grey"-->
-<!--                android:textSize="14dp"/>-->
-
-<!--        </LinearLayout>-->
-
-<!--&lt;!&ndash;        follower display&ndash;&gt;-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical"-->
-<!--            android:layout_marginLeft="-110dp"-->
-<!--            android:layout_marginTop="-5dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:gravity="center"-->
-<!--            >-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="10k"-->
-<!--                android:textColor="#D7FFFFFF"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textSize="16dp"-->
-<!--                />-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="FOLLOWER"-->
-<!--                android:textColor="#D7FFFFFF"-->
-<!--                android:textSize="10dp"-->
-<!--                />-->
-
-<!--        </LinearLayout>-->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:background="@color/grey"
+                android:layout_marginLeft="40dp"
+                />
+        </LinearLayout>
 
 
 
-<!--    </LinearLayout>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="90dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MD. NAHID HOSSEN"
+                android:textColor="#CCCCCC"
+                android:textSize="17dp"
+                android:paddingRight="10dp"
+                android:textStyle="bold"
+                android:layout_marginTop="6dp"
 
-<!--&lt;!&ndash;        data line&ndash;&gt;-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_marginRight="40dp"-->
-<!--            >-->
-<!--            <View-->
-<!--                android:layout_width="1dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:background="@color/grey"-->
-<!--                android:layout_marginLeft="40dp"-->
+                />
+            <TextView
+                android:id="@+id/date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mdnahidhossen"
+                android:textColor="@color/grey"
+                android:textSize="14dp"/>
 
-<!--                />-->
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                android:layout_marginLeft="-20dp"-->
-<!--                android:layout_marginTop="14dp"-->
-<!--                >-->
-<!--                &lt;!&ndash;            bio information&ndash;&gt;-->
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    >-->
-<!--                    <ImageView-->
-<!--                        android:layout_width="21dp"-->
-<!--                        android:layout_height="21dp"-->
-<!--                        android:src="@drawable/bio_image"-->
-<!--                        android:background="#12141C"-->
-<!--                        android:layout_marginLeft="10dp"-->
-<!--                        />-->
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:textColor="#B59C9C9C"-->
-<!--                        android:text="𝕆𝕗 𝕥𝕙𝕖 𝔸𝕝𝕝𝕒𝕙 𝔹𝕪 𝕥𝕙𝕖 𝕠𝕙𝕚 𝔽𝕠𝕣 𝕥𝕙𝕖 𝕡𝕖𝕠𝕡𝕝𝕖."-->
-<!--                        android:paddingRight="15dp"-->
-<!--                        android:paddingLeft="10dp"-->
-<!--                        />-->
-<!--                </LinearLayout>-->
-<!--&lt;!&ndash;                education &ndash;&gt;-->
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:layout_marginTop="8dp"-->
-<!--                    >-->
-<!--                    <ImageView-->
-<!--                        android:layout_width="21dp"-->
-<!--                        android:layout_height="21dp"-->
-<!--                        android:src="@drawable/profile_education_image"-->
-<!--                        android:background="#12141C"-->
-<!--                        android:layout_marginLeft="10dp"-->
-<!--                        android:padding="-1dp"-->
-<!--                        />-->
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:textColor="#B59C9C9C"-->
-<!--                        android:text="Studied at Haji Abul Hossain Institute of Technology, Tangail"-->
-<!--                        android:paddingRight="15dp"-->
-<!--                        android:paddingLeft="10dp"-->
-<!--                        />-->
-<!--                </LinearLayout>-->
-<!--&lt;!&ndash;                follower&ndash;&gt;-->
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:layout_marginTop="8dp"-->
-<!--                    >-->
-<!--                    <ImageView-->
-<!--                        android:layout_width="21dp"-->
-<!--                        android:layout_height="21dp"-->
-<!--                        android:src="@drawable/profile_work_icone"-->
-<!--                        android:background="#12141C"-->
-<!--                        android:layout_marginLeft="10dp"-->
-<!--                        android:padding="-1dp"-->
-<!--                        />-->
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:textColor="#B59C9C9C"-->
-<!--                        android:text="ApK Developer at Android"-->
-<!--                        android:paddingRight="15dp"-->
-<!--                        android:paddingLeft="10dp"-->
-<!--                        />-->
-<!--                </LinearLayout>-->
+        </LinearLayout>
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:layout_marginTop="8dp"-->
-<!--                    >-->
-<!--                    <ImageView-->
-<!--                        android:layout_width="21dp"-->
-<!--                        android:layout_height="21dp"-->
-<!--                        android:src="@drawable/profile_web_image"-->
-<!--                        android:background="#12141C"-->
-<!--                        android:layout_marginLeft="10dp"-->
-<!--                        android:padding="-1dp"-->
-<!--                        />-->
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:textColor="#B59C9C9C"-->
-<!--                        android:text="https://mdnahidhossen.com"-->
-<!--                        android:paddingRight="15dp"-->
-<!--                        android:paddingLeft="10dp"-->
-<!--                        />-->
-<!--                </LinearLayout>-->
+<!--        follower display-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="-110dp"
+            android:layout_marginTop="-5dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10k"
+                android:textColor="#D7FFFFFF"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FOLLOWER"
+                android:textColor="#D7FFFFFF"
+                android:textSize="10dp"
+                />
+
+        </LinearLayout>
 
 
 
-<!--            </LinearLayout>-->
+    </LinearLayout>
+
+<!--        data line-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="40dp"
+            >
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"
+                android:layout_marginLeft="40dp"
+
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="-20dp"
+                android:layout_marginTop="14dp"
+                >
+                <!--            bio information-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <ImageView
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:src="@drawable/bio_image"
+                        android:background="#12141C"
+                        android:layout_marginLeft="10dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#B59C9C9C"
+                        android:text="𝕆𝕗 𝕥𝕙𝕖 𝔸𝕝𝕝𝕒𝕙 𝔹𝕪 𝕥𝕙𝕖 𝕠𝕙𝕚 𝔽𝕠𝕣 𝕥𝕙𝕖 𝕡𝕖𝕠𝕡𝕝𝕖."
+                        android:paddingRight="15dp"
+                        android:paddingLeft="10dp"
+                        />
+                </LinearLayout>
+<!--                education -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    >
+                    <ImageView
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:src="@drawable/profile_education_image"
+                        android:background="#12141C"
+                        android:layout_marginLeft="10dp"
+                        android:padding="-1dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#B59C9C9C"
+                        android:text="Studied at Haji Abul Hossain Institute of Technology, Tangail"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="10dp"
+                        />
+                </LinearLayout>
+<!--                follower-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    >
+                    <ImageView
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:src="@drawable/profile_work_icone"
+                        android:background="#12141C"
+                        android:layout_marginLeft="10dp"
+                        android:padding="-1dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#B59C9C9C"
+                        android:text="ApK Developer at Android"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="10dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    >
+                    <ImageView
+                        android:layout_width="21dp"
+                        android:layout_height="21dp"
+                        android:src="@drawable/profile_web_image"
+                        android:background="#12141C"
+                        android:layout_marginLeft="10dp"
+                        android:padding="-1dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#B59C9C9C"
+                        android:text="https://mdnahidhossen.com"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="10dp"
+                        />
+                </LinearLayout>
 
 
 
-
+            </LinearLayout>
 
 
 
 
-<!--        </LinearLayout>-->
-
-<!--    </LinearLayout>-->
-<!--&lt;!&ndash;    button bar&ndash;&gt;-->
-<!--    <LinearLayout-->
-<!--        android:layout_marginTop="15dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:weightSum="2"-->
-<!--        android:layout_height="50dp">-->
-
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="fill_parent"-->
-<!--            app:cardCornerRadius="10dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_marginTop="3dp"-->
-<!--            android:layout_marginBottom="3dp"-->
-<!--            android:layout_marginLeft="15dp"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:backgroundTint="#181E37"-->
-<!--            android:clickable="true"-->
-<!--            android:foreground="?android:attr/selectableItemBackground"-->
-
-
-<!--            >-->
-<!--        <TextView-->
-<!--            android:gravity="center"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="fill_parent"-->
-<!--            android:background="@drawable/follow_and_edit_btn"-->
-<!--            android:text="Profile Edit"-->
-<!--            android:textColor="#D3FFFFFF"-->
-<!--            />-->
-<!--        </androidx.cardview.widget.CardView>-->
-
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_marginRight="13dp"-->
-<!--            android:layout_marginTop="5dp"-->
-<!--            android:layout_marginBottom="5dp"-->
-<!--            android:backgroundTint="#181E37"-->
-<!--            app:cardCornerRadius="10dp"-->
-<!--            android:clickable="true"-->
-<!--            android:foreground="?android:attr/selectableItemBackground"-->
-<!--            >-->
-
-<!--        <ImageView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:src="@drawable/profile_more_icone"-->
-<!--            android:background="@drawable/follow_and_edit_btn"-->
-<!--            android:padding="10dp"-->
-<!--            />-->
-<!--        </androidx.cardview.widget.CardView>-->
-
-
-<!--    </LinearLayout>-->
-
-<!--&lt;!&ndash;    <include&ndash;&gt;-->
-<!--&lt;!&ndash;        layout="@layout/post_layout"&ndash;&gt;-->
-<!--&lt;!&ndash;        />&ndash;&gt;-->
-
-<!--&lt;!&ndash;    <include&ndash;&gt;-->
-<!--&lt;!&ndash;        layout="@layout/post_layout"&ndash;&gt;-->
-<!--&lt;!&ndash;        />  <include&ndash;&gt;-->
-<!--&lt;!&ndash;    layout="@layout/post_layout"&ndash;&gt;-->
-<!--&lt;!&ndash;    />  <include&ndash;&gt;-->
-<!--&lt;!&ndash;    layout="@layout/post_layout"&ndash;&gt;-->
-<!--&lt;!&ndash;    />&ndash;&gt;-->
 
 
 
-<!--    </LinearLayout>-->
+
+        </LinearLayout>
+
+    </LinearLayout>
+<!--    button bar-->
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:weightSum="2"
+        android:layout_height="50dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            app:cardCornerRadius="10dp"
+            android:layout_weight="1"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#181E37"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+
+
+            >
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/follow_and_edit_btn"
+            android:text="Profile Edit"
+            android:textColor="#D3FFFFFF"
+            />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_marginRight="13dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#181E37"
+            app:cardCornerRadius="10dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/profile_more_icone"
+            android:background="@drawable/follow_and_edit_btn"
+            android:padding="10dp"
+            />
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+<!--    <include-->
+<!--        layout="@layout/post_layout"-->
+<!--        />-->
+
+<!--    <include-->
+<!--        layout="@layout/post_layout"-->
+<!--        />  <include-->
+<!--    layout="@layout/post_layout"-->
+<!--    />  <include-->
+<!--    layout="@layout/post_layout"-->
+<!--    />-->
+
+
+
+    </LinearLayout>
 </ScrollView>
