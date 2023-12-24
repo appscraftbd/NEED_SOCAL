@@ -99,17 +99,21 @@
                 android:layout_marginLeft="2dp"
                 >
 
-                <TextView
-                    android:id="@+id/post_text"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:maxLines="5"
-                    android:text="আমি একটি অ্যাপ তৈরি শুরু করেছি।  যা কিছুটা socal app এর মতো। কিন্তু এটা হবে e learn অ্যাপ যেখানে সবাই, সবাইকে সাহায্য করবে।আমি একটি অ্যাপ তৈরি শুরু করেছি।  যা কিছুটা socal app এর মতো। কিন্তু এটা হবে e learn অ্যাপ যেখানে সবাই, সবাইকে সাহায্য করবে।"
-                    android:textColor="#CCCCCC"
-                    android:textSize="14dp"/>
+
+
+                    <TextView
+                        android:id="@+id/post_text"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:lines="5"
+                        android:text="আমি একটি অ্যাপ তৈরি শুরু করেছি।  যা কিছুটা socal app এর মতো। কিন্তু এটা হবে e learn অ্যাপ যেখানে সবাই, সবাইকে সাহায্য করবে।আমি একটি অ্যাপ তৈরি শুরু করেছি।  যা কিছুটা socal app এর মতো। কিন্তু এটা হবে e learn অ্যাপ যেখানে সবাই, সবাইকে সাহায্য করবে।"
+                        android:textColor="#CCCCCC"
+                        android:textSize="14dp"/>
+
+
 
 
 
@@ -124,6 +128,7 @@
                     android:textSize="14dp"
                     android:textStyle="bold"
                     android:visibility="gone" />
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"

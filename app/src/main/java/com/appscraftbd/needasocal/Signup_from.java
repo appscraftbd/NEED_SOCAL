@@ -48,7 +48,7 @@ public class Signup_from extends AppCompatActivity {
         create_btn = findViewById(R.id.create_btn);
         username_id = findViewById(R.id.username_id);
 
-        username = findViewById(R.id.username);
+//        username = findViewById(R.id.username);
         first_name = findViewById(R.id.first_name);
         last_name = findViewById(R.id.last_name);
         birthday = findViewById(R.id.birth_day);
@@ -57,6 +57,17 @@ public class Signup_from extends AppCompatActivity {
         gmail = findViewById(R.id.gmail_id);
         password = findViewById(R.id.password);
         confirmpassword = findViewById(R.id.confirm_password);
+
+        username_id.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+        first_name.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+        last_name.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+        birthday.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+        birthmonth.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+        birthyear.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+        gmail.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+        password.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+        confirmpassword.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+
 
         lottieAnimationView = findViewById(R.id.loading);
 

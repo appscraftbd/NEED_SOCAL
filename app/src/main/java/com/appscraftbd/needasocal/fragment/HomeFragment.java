@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,6 +30,7 @@ import android.widget.ToggleButton;
 import com.appscraftbd.needasocal.CodeIdentifyANDaction;
 import com.appscraftbd.needasocal.PostEdit;
 import com.appscraftbd.needasocal.R;
+import com.appscraftbd.needasocal.READMORE;
 
 
 public class HomeFragment extends Fragment {
@@ -39,10 +41,8 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
      public static SwipeRefreshLayout swipeRefreshLayout;
      ImageView uploard_post;
-
     String text_text;
 
-    private boolean isExpanded = false;
 
     @SuppressLint({"ResourceAsColor", "MissingInflatedId"})
     @Override
@@ -101,51 +101,36 @@ public class HomeFragment extends Fragment {
 
         public class MyviewHolder extends RecyclerView.ViewHolder{
 
-            TextView post_text,readmore;
+            public  TextView post_text,readmore;
 
             public MyviewHolder(@NonNull View itemView) {
                 super(itemView);
 
                 post_text = itemView.findViewById(R.id.post_text);
                 readmore = itemView.findViewById(R.id.tvReadMore);
+
                 ToggleButton likeButton = itemView.findViewById(R.id.likeButton);
 
 
-                text_text = "php get method not support spacal chatacter.\n" +
-                        "And does not print this character.\n" +
-                        "for example:\n" +
-                        "!@#%^&*()_+}[:\",./<>?`~|\\\n" +
-                        "how i can solve it?\n" +
+                text_text =
+                        "php get method not support spacal chatacter.\n" +
+                                "And does not print this character.\n" +
+                                "for example:\n" +
+                                "!@#%^&*()_+}[:\",./<>?`~|\\\n" +
+                                "how i can solve it?\n"+
                         " ---->\n try {\n" +
                         "            spass = URLEncoder.encode(spass,\"UTF-8\");\n" +
                         "        } catch (UnsupportedEncodingException e) {\n" +
                         "        }\n" +
                         "        }\n"+
-
                         "            throw new RuntimeException(e);\n" +
-                        "        }\n---->";
+                        "        }\n---->"
+            ;
 
 
-                post_text.setText(text_text);
-
-                post_text.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-                    @Override
-                    public boolean onPreDraw() {
-                        post_text.getViewTreeObserver().removeOnPreDrawListener(this);
-                        if (post_text.getLineCount() > post_text.getMaxLines()) {
-                            readmore.setVisibility(View.VISIBLE);
-                            readmore.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    toggleReadMore(post_text,readmore);
-                                }
-                            });
-                        }
-                        return true;
-                    }
-                });
-
-
+                post_text.setMaxLines(5);
+                READMORE readmore1 = new READMORE();
+                readmore1.Readmore(getContext(),text_text,post_text,readmore);
 
 
 
@@ -187,18 +172,4 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private void toggleReadMore(TextView text,TextView btn) {
-        if (isExpanded) {
-            text.setMaxLines(5); // Change the number of lines you want to show initially
-            btn.setText("Read More");
-            CodeIdentifyANDaction codeIdentifyANDaction = new CodeIdentifyANDaction();
-            codeIdentifyANDaction.inANDout(getContext(),text_text,text);
-        } else {
-            text.setMaxLines(Integer.MAX_VALUE);
-            btn.setText("Read Less");
-            CodeIdentifyANDaction codeIdentifyANDaction = new CodeIdentifyANDaction();
-            codeIdentifyANDaction.inANDout(getContext(),text_text,text);
-        }
-        isExpanded = !isExpanded;
-    }
 }

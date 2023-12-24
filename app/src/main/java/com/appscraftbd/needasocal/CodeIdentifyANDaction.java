@@ -7,12 +7,15 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,11 +26,17 @@ public class CodeIdentifyANDaction {
     SpannableString spannableString;
     String spspostText;
     Context context;
+    TextView postText_id,readmore;
 
-    public  void inANDout(Context context,String spostText, TextView postText_id){
+
+
+    public  void inANDout(Context context,String spostText, TextView postText_id,TextView readmore){
+
 
         this.spspostText = spostText;
         this.context = context;
+        this.postText_id = postText_id;
+        this.readmore = readmore;
 
         ArrayList<Integer> array = new ArrayList<Integer>();
         spannableString = new SpannableString(spostText);
@@ -35,7 +44,8 @@ public class CodeIdentifyANDaction {
         tag_identify(spostText,array);
         tag_setColor_setButton(array);
 
-        postText_id.setHighlightColor(Color.TRANSPARENT);
+
+        postText_id.setHighlightColor(Color.parseColor("#2DB7BFCD"));
         postText_id.setText(spannableString);
         postText_id.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -81,13 +91,14 @@ public class CodeIdentifyANDaction {
                 int f3 = f2 + 4;
 
                 ClickableSpan clickableSpan = new ClickableSpan() {
+
                     @Override
                     public void onClick(View widget) {
 
+
+
                         NEED_code_copy(f1,f2);
                         widget.invalidate();
-                        
-
 
                     }
                     @Override
@@ -103,9 +114,8 @@ public class CodeIdentifyANDaction {
 
                 };
 
-
-                spannableString.setSpan(clickableSpan, f1-1, f3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
+                //                spannableString.setSpan(clickableSpan, f1-1, f3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#636C7D")), f1-1, f3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 
             }else {// z==1++ same work
@@ -117,6 +127,9 @@ public class CodeIdentifyANDaction {
 
                     @Override
                     public void onClick(View widget) {
+
+
+                        postText_id.setMaxLines(Integer.MAX_VALUE);
 
                         NEED_code_copy(f1,f2);
                         widget.invalidate();
@@ -135,7 +148,9 @@ public class CodeIdentifyANDaction {
 
                     }
                 };
-                spannableString.setSpan(clickableSpan, f1-1, f3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//                spannableString.setSpan(clickableSpan, f1-1, f3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#636C7D")), f1-1, f3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
 
             }
         }
@@ -147,33 +162,28 @@ public class CodeIdentifyANDaction {
         for (f1=f1+5; f1<f2-1; f1++){
                tampString = tampString+spspostText.charAt(f1);
 
-
         }
-//            new AlertDialog.Builder(context)
-//                    .setMessage(""+tampString)
-//                    .show();
-        Dialog dialog = new Dialog(context);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.code_dialog_box);
-        TextView textView = dialog.findViewById(R.id.dialogmsg);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        textView.setText(""+tampString);
-        dialog.show();
+            Dialog dialog = new Dialog(context);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.code_dialog_box);
+            TextView textView = dialog.findViewById(R.id.dialogmsg);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            textView.setText(""+tampString);
+            dialog.show();
+            String finalTampString = tampString;
 
-        String finalTampString = tampString;
-        textView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
+            textView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
 
-                ClipboardManager clipboardManager = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
-                clipboardManager.setText(finalTampString);
-                Toast.makeText(context,"copy",Toast.LENGTH_SHORT).show();
+                    ClipboardManager clipboardManager = (ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    clipboardManager.setText(finalTampString);
+                    Toast.makeText(context,"copy",Toast.LENGTH_SHORT).show();
 
-                return false;
-            }
-        });
+                    return false;
+                }
+            });
 
     }
-
 
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -35,6 +36,10 @@ public class Login_from extends AppCompatActivity {
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
+
+        username.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+        password.setHighlightColor(Color.parseColor("#2DB7BFCD"));
+
 
         lottieAnimationView = findViewById(R.id.loading);
 
