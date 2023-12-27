@@ -8,7 +8,14 @@
 
         <item name="android:navigationBarColor">@color/navi_color</item>
 
+
+
     </style>
+    
+
+
+
+
 
     <style name="Theme.NEEDASocal" parent="Base.Theme.NEEDASocal" />
 

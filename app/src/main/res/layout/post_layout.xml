@@ -151,12 +151,11 @@
 <!--                        android:layout_centerVertical="true"-->
 <!--                        />-->
 
-                    <ToggleButton
+                    <ImageView
                         android:id="@+id/likeButton"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:textOff=""
-                        android:textOn=""
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_like2"
                         android:background="#00FFFFFF"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="15dp"
@@ -181,7 +180,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_comment"
-                        android:layout_marginLeft="117dp"
+                        android:layout_marginLeft="114dp"
                         android:layout_centerVertical="true"
                         />
                     <TextView

@@ -100,7 +100,8 @@
                 android:text="10k"
                 android:textColor="#D7FFFFFF"
                 android:textStyle="bold"
-                android:textSize="16dp"
+                android:fontFamily="@font/follow"
+                android:textSize="15dp"
                 />
             <TextView
                 android:layout_width="wrap_content"

@@ -2,6 +2,7 @@ package com.appscraftbd.needasocal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.splashscreen.SplashScreen;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
@@ -17,7 +18,7 @@ import android.widget.Toast;
 import com.appscraftbd.needasocal.Login.Login_from;
 import com.appscraftbd.needasocal.fragment.AboutFragment;
 import com.appscraftbd.needasocal.fragment.GlobalFragment;
-import com.appscraftbd.needasocal.fragment.HomeFragment;
+import com.appscraftbd.needasocal.fragment.home_fragment.HomeFragment;
 import com.appscraftbd.needasocal.fragment.NotificationFragment;
 import com.appscraftbd.needasocal.fragment.ProfileFragment;
 import com.google.android.material.tabs.TabLayout;
@@ -31,12 +32,21 @@ public class MainActivity extends AppCompatActivity {
     int tab_count = 0;
     int tab_possition = 0;
 
+    public static int open = 0;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(open<1){
+            Intent opening = new Intent(MainActivity.this, App_opening_layout.class);
+            startActivity(opening);
+        }
+
 
 
         ////android rotating off
@@ -54,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor result = sqlLite.data_result();
 
         try {
+
             if (result.getCount() == 0) {
                 Intent sign = new Intent(MainActivity.this, Login_from.class);
                 startActivity(sign);
@@ -124,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                         if (tab.getPosition()==0){
                             if(tab_count >2){
                                 HomeFragment homeFragment = new HomeFragment();
-                                homeFragment.homeRefreshing();
+//                                homeFragment.homeRefreshing();
                             }
                             tab_count = tab_count+2;
                         }else if (tab.getPosition()==1) {
@@ -218,7 +229,12 @@ public class MainActivity extends AppCompatActivity {
             tab_count = tab_count + 4;
             viewPager2.setCurrentItem(0);
         }else {
-            super.onBackPressed();
+            if(open>0){
+                super.onBackPressed();
+                finishAffinity();
+                finish();
+
+            }
         }
     }
 }
