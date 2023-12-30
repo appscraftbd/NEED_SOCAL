@@ -1,39 +1,23 @@
-package com.appscraftbd.needasocal.fragment.home_fragment;
+package com.appscraftbd.needasocal.fragment;
 
 import static androidx.swiperefreshlayout.widget.SwipeRefreshLayout.*;
 
-import static com.appscraftbd.needasocal.R.drawable.*;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
-import com.appscraftbd.needasocal.CodeIdentifyANDaction;
+import com.appscraftbd.needasocal.Recycle_view;
 import com.appscraftbd.needasocal.PostEdit;
 import com.appscraftbd.needasocal.R;
-import com.appscraftbd.needasocal.READMORE;
 
 
 public class HomeFragment extends Fragment {
@@ -71,7 +55,7 @@ public class HomeFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclehome);
 
-        Home_Recycle homeRecycle = new Home_Recycle();
+        Recycle_view homeRecycle = new Recycle_view();
         homeRecycle.recycle_work(getContext(),recyclerView);
 
         return view;

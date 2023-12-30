@@ -1,4 +1,4 @@
-package com.appscraftbd.needasocal.fragment.home_fragment;
+package com.appscraftbd.needasocal;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,11 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.appscraftbd.needasocal.R;
-import com.appscraftbd.needasocal.READMORE;
 
 
-public class Home_Recycle {
+public class Recycle_view {
     Context context;
     public void recycle_work( Context context,RecyclerView recyclerView){
         this.context = context;

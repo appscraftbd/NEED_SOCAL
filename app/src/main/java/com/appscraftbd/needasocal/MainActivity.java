@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.appscraftbd.needasocal.Login.Login_from;
 import com.appscraftbd.needasocal.fragment.AboutFragment;
 import com.appscraftbd.needasocal.fragment.GlobalFragment;
-import com.appscraftbd.needasocal.fragment.home_fragment.HomeFragment;
+import com.appscraftbd.needasocal.fragment.HomeFragment;
 import com.appscraftbd.needasocal.fragment.NotificationFragment;
 import com.appscraftbd.needasocal.fragment.ProfileFragment;
 import com.google.android.material.tabs.TabLayout;

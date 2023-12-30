@@ -1,16 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#12141C"
-    tools:context=".fragment.GlobalFragment">
+    tools:context=".fragment.HomeFragment">
 
- <androidx.recyclerview.widget.RecyclerView
-     android:id="@+id/recycleglobal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    />
+ <com.google.android.material.appbar.AppBarLayout
+     android:id="@+id/appBarLayout"
+     android:layout_width="match_parent"
+     android:layout_height="55dp"
+     android:background="#12141C"
+
+     >
+  <android.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      app:layout_scrollFlags="scroll|enterAlways"
+      app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+      >
+   <ImageView
+       android:layout_width="190dp"
+       android:layout_height="44dp"
+       android:src="@drawable/global_text"
+       android:layout_marginLeft="0dp"
+       android:layout_marginTop="7dp"
+       android:layout_marginBottom="2dp"
+       android:paddingLeft="-5dp"
+       />
 
 
-</RelativeLayout>
+
+
+
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="35dp"
+       android:layout_height="35dp"
+       app:cardCornerRadius="10dp"
+       android:layout_marginRight="18dp"
+       android:layout_gravity="right"
+       android:backgroundTint="#0CFFFFFF"
+       android:clickable="true"
+       android:foreground="?android:attr/selectableItemBackground"
+
+       >
+
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="22dp"
+        android:layout_gravity="center"
+        android:src="@drawable/search_icone" />
+
+   </androidx.cardview.widget.CardView>
+
+
+
+  </android.widget.Toolbar>
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="0.5dp"
+      android:background="#33505050"
+      android:layout_gravity="end"
+      android:layout_marginTop="-1dp"
+      />
+ </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+
+
+
+
+
+
+
+ <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+
+     android:id="@+id/swipeRefreshLayout"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+     style="@style/AppTheme"
+     >
+  <!-- Main Content -->
+  <androidx.core.widget.NestedScrollView
+      android:id="@+id/nestedScrollView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/recycleglobal"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       />
+
+
+
+
+  </androidx.core.widget.NestedScrollView>
+ </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
