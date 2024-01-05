@@ -3,7 +3,8 @@ package com.appscraftbd.needasocal.fragment;
 import static androidx.swiperefreshlayout.widget.SwipeRefreshLayout.*;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,10 +15,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.appscraftbd.needasocal.Recycle_view;
-import com.appscraftbd.needasocal.PostEdit;
 import com.appscraftbd.needasocal.R;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 
 public class HomeFragment extends Fragment {
@@ -26,6 +31,7 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
      public static SwipeRefreshLayout swipeRefreshLayout;
      ImageView uploard_post;
+     BottomSheetDialog bottomSheetDialog;
 
 
 
@@ -46,8 +52,9 @@ public class HomeFragment extends Fragment {
         uploard_post.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), PostEdit.class);
-                startActivity(intent);
+
+                setBottomSheetDialog();
+
 
             }
         });
@@ -59,6 +66,30 @@ public class HomeFragment extends Fragment {
         homeRecycle.recycle_work(getContext(),recyclerView);
 
         return view;
+
+    }
+    //////////////////////
+    private void setBottomSheetDialog(){
+
+        bottomSheetDialog = new BottomSheetDialog(getContext());
+        View view1 = LayoutInflater.from(getContext()).inflate(R.layout.new_post,
+                null);
+        bottomSheetDialog.setContentView(view1);
+
+
+        bottomSheetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        bottomSheetDialog.setCancelable(false);
+        bottomSheetDialog.show();
+
+        TextView cancel = bottomSheetDialog.findViewById(R.id.cancel_post);
+        cancel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                bottomSheetDialog.dismiss();
+
+            }
+        });
 
     }
 }

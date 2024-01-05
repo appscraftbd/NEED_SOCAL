@@ -26,11 +26,11 @@ import com.google.android.material.tabs.TabLayout;
 public class MainActivity extends AppCompatActivity {
 
 
-    String user, pass;
-    TabLayout tabLayout;
-    ViewPager2 viewPager2;
-    int tab_count = 0;
-    int tab_possition = 0;
+    private String user, pass;
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager2;
+    private int tab_count = 0;
+    private int tab_possition = 0;
 
     public static int open = 0;
 
