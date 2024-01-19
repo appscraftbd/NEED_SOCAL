@@ -10,11 +10,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
 
 import com.appscraftbd.needasocal.R;
-import com.appscraftbd.needasocal.Recycle_view;
+import com.appscraftbd.needasocal.RECYCLER_VIEW.Recycle_view_loading;
 
 
 public class GlobalFragment extends Fragment {
@@ -37,7 +35,7 @@ public class GlobalFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycleglobal);
 
-        Recycle_view globalRecycleView = new Recycle_view();
+        Recycle_view_loading globalRecycleView = new Recycle_view_loading();
         globalRecycleView.recycle_work(getContext(),recyclerView);
 
 

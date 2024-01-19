@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.appscraftbd.needasocal.Login.Login_from;
+import com.appscraftbd.needasocal.SQLite_data.SQL_LITE;
 import com.appscraftbd.needasocal.fragment.AboutFragment;
 import com.appscraftbd.needasocal.fragment.GlobalFragment;
 import com.appscraftbd.needasocal.fragment.HomeFragment;
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 /// data read
                 StringBuffer stringBuffer = new StringBuffer();
                 StringBuffer stringBuffer1 = new StringBuffer();
+
                 while (result.moveToNext()) {
                     stringBuffer.append(result.getString(1));
                     stringBuffer1.append(result.getString(2));

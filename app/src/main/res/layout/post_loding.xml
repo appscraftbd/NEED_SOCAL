@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#12141C"
+    android:orientation="vertical"
+    android:layout_marginTop="0dp"
+    >
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Your content goes here -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:src="#4CBED1DA"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="115dp"
+                    android:layout_height="19dp"
+                    android:background="#4CBED1DA"
+                    />
+
+
+
+
+                <View
+                    android:layout_width="72dp"
+                    android:layout_height="14dp"
+                    android:layout_marginTop="4dp"
+                    android:background="#4CBED1DA"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="#4CBED1DA"
+                android:layout_marginLeft="27dp"
+                android:layout_marginRight="2dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="17dp"
+                android:layout_marginLeft="32dp"
+                >
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    android:background="#4CBED1DA"
+                    android:layout_marginRight="26dp"
+                    android:layout_marginBottom="4dp"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    android:background="#4CBED1DA"
+                    android:layout_marginRight="76dp"
+                    android:layout_marginBottom="4dp"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    android:background="#4CBED1DA"
+                    android:layout_marginRight="26dp"
+                    android:layout_marginBottom="4dp"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp"
+                    android:background="#4CBED1DA"
+                    android:layout_marginRight="60dp"
+                    android:layout_marginBottom="4dp"
+                    />
+
+
+
+
+
+
+
+
+
+                <TextView
+                    android:id="@+id/tvReadMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Read More"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:layout_marginLeft="28dp"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="#4CBED1DA"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginBottom="10dp"
+                    />
+
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:src="#4CBED1DA"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="-0dp"
+            />
+
+    </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+</LinearLayout>

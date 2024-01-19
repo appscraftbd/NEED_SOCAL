@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="5dp"
+        android:layout_marginTop="0.5dp"
         android:layout_marginLeft="5dp"
         >
 
@@ -46,22 +47,23 @@
                 android:layout_gravity="center"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/username"
+                    android:id="@+id/full_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="MD. Nahid Hossen"
-                    android:textColor="#CCCCCC"
-                    android:textSize="16dp"
+                    android:textColor="#E6E6E6"
+                    android:textSize="17dp"
+                    android:lines="1"
                     android:textStyle="bold"
 
                     />
                 <TextView
-                    android:id="@+id/date_tv"
+                    android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20 minutes ago"
                     android:textColor="@color/grey"
-                    android:textSize="11dp"/>
+                    android:textSize="14dp"/>
 
             </LinearLayout>
 
@@ -105,13 +107,13 @@
                         android:id="@+id/post_text"
                         android:layout_marginLeft="30dp"
                         android:layout_marginTop="2dp"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginRight="30dp"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:lines="5"
+                        android:maxLines="5"
                         android:text="আমি একটি অ্যাপ তৈরি শুরু করেছি।  যা কিছুটা socal app এর মতো। কিন্তু এটা হবে e learn অ্যাপ যেখানে সবাই, সবাইকে সাহায্য করবে।আমি একটি অ্যাপ তৈরি শুরু করেছি।  যা কিছুটা socal app এর মতো। কিন্তু এটা হবে e learn অ্যাপ যেখানে সবাই, সবাইকে সাহায্য করবে।"
-                        android:textColor="#CCCCCC"
-                        android:textSize="14dp"/>
+                        android:textColor="#DEDEDE"
+                        android:textSize="16dp"/>
 
 
 
@@ -130,108 +132,163 @@
                     android:visibility="gone" />
 
 
-                <RelativeLayout
+
+<!--                like  commend  share-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:background="@drawable/post_bar"
                     android:layout_marginRight="-40dp"
                     android:layout_marginTop="13dp"
                     android:layout_marginLeft="20dp"
                     android:orientation="horizontal"
                     android:layout_marginBottom="10dp"
+
                     >
-
-
-<!--                    <ImageView-->
-<!--                        android:id="@+id/like_btn"-->
-<!--                        android:layout_width="25dp"-->
-<!--                        android:layout_height="25dp"-->
-<!--                        android:src="@drawable/like_icone"-->
-<!--                        android:layout_marginLeft="15dp"-->
-<!--                        android:layout_centerVertical="true"-->
-<!--                        />-->
-
-                    <ImageView
+                    <LinearLayout
                         android:id="@+id/likeButton"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_like2"
-                        android:background="#00FFFFFF"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"
-                        tools:ignore="MissingConstraints" />
-
-
-                    <TextView
-                        android:id="@+id/like_tv"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" 10M"
-                        android:textColor="@color/grey"
-                        android:layout_marginRight="30dp"
-                        android:layout_toRightOf="@+id/likeButton"
-                        android:textSize="15dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_centerVertical="true"
-                        />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/action_item_white"
+                        >
+                        <ImageView
+                            android:id="@+id/likeic"
+                            android:layout_width="21dp"
+                            android:layout_height="21dp"
+                            android:src="@drawable/ic_like2"
+                            android:background="#00FFFFFF"
+                            android:layout_marginLeft="11dp"
+                            android:layout_gravity="center_vertical"
+                            />
 
-                    <ImageView
-                        android:id="@+id/comment_btn"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_comment"
-                        android:layout_marginLeft="114dp"
-                        android:layout_centerVertical="true"
-                        />
-                    <TextView
-                        android:id="@+id/comment_tv"
+
+                        <TextView
+                            android:id="@+id/liketext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Like"
+                            android:textColor="#DEDEDE"
+                            android:layout_marginRight="11dp"
+                            android:layout_toRightOf="@+id/likeButton"
+                            android:textSize="13dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_gravity="center_vertical"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" 50k"
-                        android:layout_marginRight="30dp"
-                        android:textColor="@color/grey"
-                        android:textSize="15dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@id/comment_btn"
-                        android:layout_centerVertical="true"
-                        />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="9dp"
+                        android:background="@drawable/action_item_white"
+                        >
+                        <ImageView
+                            android:id="@+id/comment_btn"
+                            android:layout_width="21dp"
+                            android:layout_height="21dp"
+                            android:src="@drawable/ic_comment"
+                            android:background="#00FFFFFF"
+                            android:layout_marginLeft="11dp"
+                            android:layout_gravity="center_vertical"
+                            />
 
-                    <ImageView
-                        android:id="@+id/share_btn"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_share2"
-                        android:layout_marginLeft="213dp"
-                        android:layout_centerVertical="true"
-                        />
-                    <TextView
-                        android:id="@+id/share_tv"
+
+                        <TextView
+                            android:id="@+id/comment_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Comment"
+                            android:textColor="#DEDEDE"
+                            android:layout_marginRight="11dp"
+                            android:layout_toRightOf="@+id/likeButton"
+                            android:textSize="13dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_gravity="center_vertical"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" 20k"
-                        android:layout_marginRight="30dp"
-                        android:textColor="@color/grey"
-                        android:textSize="15dp"
-                        android:layout_marginLeft="3dp"
-                        android:layout_toRightOf="@id/share_btn"
-                        android:layout_centerVertical="true"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginLeft="9dp"
+                        android:background="@drawable/action_item_white"
+                        >
+                        <ImageView
+                            android:id="@+id/share_btn"
+                            android:layout_width="21dp"
+                            android:layout_height="21dp"
+                            android:src="@drawable/ic_share2"
+                            android:background="#00FFFFFF"
+                            android:layout_marginLeft="11dp"
+                            android:layout_gravity="center_vertical"
+                            />
 
-                        />
+
+                        <TextView
+                            android:id="@+id/share_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Share"
+                            android:textColor="#DEDEDE"
+                            android:layout_marginRight="11dp"
+                            android:layout_toRightOf="@+id/likeButton"
+                            android:textSize="13dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_gravity="center_vertical"
+                            />
+
+                    </LinearLayout>
 
 
-                </RelativeLayout>
+                </LinearLayout>
 
 
 
             </LinearLayout>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="-2dp"
+            android:layout_marginBottom="6dp"
+            >
+
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="27dp"
-            android:layout_height="27dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/profile"
             android:layout_marginLeft="14dp"
-            android:layout_marginTop="-5dp"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:text="12 Comment"
+                android:textColor="#FEDEDEDE"
+                android:layout_marginLeft="15dp"
+                android:textSize="14dp"
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#33505050"
+            android:layout_marginLeft="27dp"
+            android:layout_marginRight="27dp"
+            android:layout_marginTop="7dp"
             />
 
     </LinearLayout>

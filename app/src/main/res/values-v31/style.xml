@@ -3,7 +3,7 @@
 
     <style name="Theme.Startapp" parent="Theme.SplashScreen">
         <item name="android:windowSplashScreenBackground">#12141C</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/appopne_icon</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_need_logo</item>
         <item name="postSplashScreenTheme">@style/Base.Theme.NEEDASocal</item>
 
 

@@ -15,7 +15,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.appscraftbd.needasocal.SQL_LITE;
+import com.appscraftbd.needasocal.MainActivity;
+import com.appscraftbd.needasocal.SQLite_data.SQL_LITE;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -100,11 +101,14 @@ public class Login_api {
 
                                     // collecte the intent in LoginFrom.class
                                     startActivity(context,intent,null);
+                                    MainActivity.open=0;
 
                                 }else {
                                     sqlLite.data_update(uid,pass);
                                     // collecte the intent in LoginFrom.class
                                     startActivity(context,intent,null);
+                                    MainActivity.open=0;
+
                                 }
                             }catch (Exception e){
 
