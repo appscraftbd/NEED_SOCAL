@@ -19,8 +19,11 @@
 
     <style name="Theme.NEEDASocal" parent="Base.Theme.NEEDASocal" />
 
-
-
+    <style name="DatePickerTheme" parent="@android:style/Theme.Holo.Light.Dialog.MinWidth">
+        <item name="android:textColor">@color/navi_color</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorPrimary">@color/navi_color</item>
+    </style>
 
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/grey</item>

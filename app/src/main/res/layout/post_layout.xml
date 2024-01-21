@@ -113,6 +113,7 @@
                         android:maxLines="5"
                         android:text="আমি একটি অ্যাপ তৈরি শুরু করেছি।  যা কিছুটা socal app এর মতো। কিন্তু এটা হবে e learn অ্যাপ যেখানে সবাই, সবাইকে সাহায্য করবে।আমি একটি অ্যাপ তৈরি শুরু করেছি।  যা কিছুটা socal app এর মতো। কিন্তু এটা হবে e learn অ্যাপ যেখানে সবাই, সবাইকে সাহায্য করবে।"
                         android:textColor="#DEDEDE"
+                        android:ellipsize="end"
                         android:textSize="16dp"/>
 
 

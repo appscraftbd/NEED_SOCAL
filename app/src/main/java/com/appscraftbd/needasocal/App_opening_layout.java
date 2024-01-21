@@ -20,6 +20,7 @@ import com.android.volley.toolbox.Volley;
 import com.appscraftbd.needasocal.Login.Login_from;
 import com.appscraftbd.needasocal.SQLite_data.SQL_LITE;
 import com.appscraftbd.needasocal.SQLite_data.User_InfoSQLite;
+import com.appscraftbd.needasocal.fragment.HomeFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -75,6 +76,8 @@ public class App_opening_layout extends AppCompatActivity {
                     break;
 
                 }
+
+
 
                 chackInfo_and_getData(user,pass);
 

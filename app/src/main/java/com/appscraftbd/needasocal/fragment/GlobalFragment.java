@@ -1,6 +1,7 @@
 package com.appscraftbd.needasocal.fragment;
 
 import android.annotation.SuppressLint;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,14 +12,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.appscraftbd.needasocal.Api_Call_Home;
 import com.appscraftbd.needasocal.R;
 import com.appscraftbd.needasocal.RECYCLER_VIEW.Recycle_view_loading;
+import com.appscraftbd.needasocal.SQLite_data.SQL_LITE;
 
 
 public class GlobalFragment extends Fragment {
 
     RecyclerView recyclerView;
     public static SwipeRefreshLayout swipeRefreshLayout;
+
+
 
     @SuppressLint({"MissingInflatedId", "ResourceAsColor"})
     @Override
@@ -38,9 +43,42 @@ public class GlobalFragment extends Fragment {
         Recycle_view_loading globalRecycleView = new Recycle_view_loading();
         globalRecycleView.recycle_work(getContext(),recyclerView);
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Handle the refresh action (e.g., fetch new data from a server)
+                getRecycleCall();
+
+
+            }
+        });
+
+
+        /////////////////////////////////////
+        getRecycleCall();
+        ////////////////////////////////////
 
 
 
         return view;
     }
+
+    public  void getRecycleCall(){
+
+
+
+        SQL_LITE sqlLite = new SQL_LITE(getContext());
+        Cursor cursor1 = sqlLite.data_result();
+
+        while (cursor1.moveToNext()){
+            String user = cursor1.getString(1);
+            String pass = cursor1.getString(2);
+
+            String url = "https://mdnahidhossen.com/need/getUpoloadPost.php?uid="+user+"&pass="+pass;
+            Api_Call_Home apiCall = new Api_Call_Home(url,getContext(),recyclerView,swipeRefreshLayout);
+            break;
+        }
+
+    }
+
 }

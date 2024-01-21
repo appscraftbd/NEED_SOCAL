@@ -1,4 +1,8 @@
 package com.appscraftbd.needasocal;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -51,5 +55,43 @@ public class TimeAndDate {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public  String today(String time) {
+
+//
+        String inputDateStr = "20 Jan 2024";
+        DateTimeFormatter inputFormat = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            inputFormat = DateTimeFormatter.ofPattern("dd MMM yyyy");
+        }
+        DateTimeFormatter outputFormat = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            outputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        }
+
+        LocalDate inputDate = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            inputDate = LocalDate.parse(inputDateStr, inputFormat);
+        }
+        String outputDateStr = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            outputDateStr = inputDate.format(outputFormat);
+        }
+
+        String up = ""+outputDateStr;
+
+
+        LocalDate nextDay = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            nextDay = inputDate.plusDays(1);
+        }
+
+        DateTimeFormatter formatter2 = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            formatter2 = DateTimeFormatter.ofPattern("d MMM yyyy");
+        }
+
+        return ""+nextDay.format(formatter2);
+    }
 
 }

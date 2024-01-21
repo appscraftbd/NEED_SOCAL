@@ -4,6 +4,7 @@ import static androidx.swiperefreshlayout.widget.SwipeRefreshLayout.*;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.appscraftbd.needasocal.Api_Call_Home;
+import com.appscraftbd.needasocal.CreatePost;
 import com.appscraftbd.needasocal.RECYCLER_VIEW.Recycle_view_loading;
 import com.appscraftbd.needasocal.R;
 import com.appscraftbd.needasocal.RECYCLER_VIEW.Recycleview_item;
@@ -112,8 +115,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                setBottomSheetDialog();
-
+                full_name = first_name+" "+last_name;
+                CreatePost.name=""+full_name;
+                CreatePost.user=""+username;
+                CreatePost.pass=""+password;
+                CreatePost.pic=""+profile_pic;
+                startActivity(new Intent(getContext(), CreatePost.class));
+//                setBottomSheetDialog();
 
             }
         });
@@ -121,28 +129,11 @@ public class HomeFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclehome);
 
-        Recycle_view_loading homeRecycle = new Recycle_view_loading();
-        homeRecycle.recycle_work(getContext(),recyclerView);
+        Recycle_view_loading globalRecycleView = new Recycle_view_loading();
+        globalRecycleView.recycle_work(getContext(),recyclerView);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // Start the new activity
+        getRecycleCall();
 
-                Cursor cursor1 = sqlLite.data_result();
-
-                while (cursor1.moveToNext()){
-                    String user = cursor1.getString(1);
-                    String pass = cursor1.getString(2);
-
-                    String url = "https://mdnahidhossen.com/need/getUpoloadPost.php?uid="+user+"&pass="+pass;
-                    Api_Call_Home apiCall = new Api_Call_Home(url,getContext(),recyclerView,swipeRefreshLayout);
-                    break;
-                }
-
-
-            }
-        }, 1500);
 
 
         return view;
@@ -152,104 +143,20 @@ public class HomeFragment extends Fragment {
 
 
     //////////////////////
-    private void setBottomSheetDialog(){
-
-        bottomSheetDialog = new BottomSheetDialog(getContext());
-        View view1 = LayoutInflater.from(getContext()).inflate(R.layout.new_post,
-                null);
-        bottomSheetDialog.setContentView(view1);
 
 
-        bottomSheetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        bottomSheetDialog.setCancelable(false);
-        bottomSheetDialog.show();
+    public  void getRecycleCall(){
+        sqlLite = new SQL_LITE(getContext());
+        Cursor cursor1 = sqlLite.data_result();
 
-        TextView cancel = bottomSheetDialog.findViewById(R.id.cancel_post);
-        TextView post_submit = bottomSheetDialog.findViewById(R.id.post_submit);
-        EditText post_body = bottomSheetDialog.findViewById(R.id.post_body);
-        TextView user = bottomSheetDialog.findViewById(R.id.username);
+        while (cursor1.moveToNext()){
+            String user = cursor1.getString(1);
+            String pass = cursor1.getString(2);
 
-        full_name = first_name+" "+last_name;
-        user.setText(""+full_name);
-
-        cancel.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                bottomSheetDialog.dismiss();
-
-            }
-        });
-
-        post_submit.setOnClickListener( view -> {
-
-            bottomSheetDialog.dismiss();
-            String body = post_body.getText().toString();
-            getANewPost(body);
-
-        });
-
-    }
-
-    private void getANewPost( String post_text){
-
-//        try {
-//            post_text = URLEncoder.encode(post_text,"UTF-8");
-//        } catch (UnsupportedEncodingException e) {
-//            throw new RuntimeException(e);
-//        }
-
-
-        ///////
-        dialog = new Dialog(getContext());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.loading_layout);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.setCancelable(false);
-        dialog.show();
-
-        ////time_and_date
-        TimeAndDate timeAndDate = new TimeAndDate();
-        post_time = timeAndDate.time();
-        post_date = timeAndDate.date();
-
-
-
-         full_name = first_name+" "+last_name;
-
-        String url = "https://mdnahidhossen.com/need/setUploadPost.php?"+"uid="+username+" &pass="+password+"&Name="+full_name+"&Profile_pic="+profile_pic+"&Post_text="+post_text+"&Post_time="+post_time+"&Post_date="+post_date+"&Like_count="+post_like+ "&Comment_count="+post_comment+"&Share_count="+post_share+"&Profile_mode=none";
-
-
-        String finalPost_text = post_text;
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // Handle the response from the server
-                        dialog.dismiss();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Handle the error
-                    }
-                })
-
-        {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("Post_text", finalPost_text);
-                return params;
-            }
-        };
-
-
-
-        RequestQueue queue = Volley.newRequestQueue(getContext());
-        queue.add(stringRequest);
-
+            String url = "https://mdnahidhossen.com/need/getUpoloadPost.php?uid="+user+"&pass="+pass;
+            Api_Call_Home apiCall = new Api_Call_Home(url,getContext(),recyclerView,swipeRefreshLayout);
+            break;
+        }
 
     }
 

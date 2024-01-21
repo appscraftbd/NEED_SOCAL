@@ -24,6 +24,9 @@ import com.appscraftbd.needasocal.READMORE;
 import com.appscraftbd.needasocal.SQLite_data.SQL_LITE;
 import com.appscraftbd.needasocal.TimeAndDate;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -34,6 +37,8 @@ public class Recycleview_item {
 
     String user,pass;
     public static  HashMap <String,String> hashMap ;
+    String nextday;
+    long ntime,ptime;
     ArrayList <HashMap <String,String>> arrayList =new ArrayList<>();
     public Recycleview_item(Context context ,ArrayList arrayList, RecyclerView recyclerView1 ){
         this.context = context;
@@ -79,10 +84,25 @@ public class Recycleview_item {
             String scomment_count = ""+hashMap.get("Comment_count");
             String sshare_count = ""+hashMap.get("Share_count");
 
+            try {
+                spost_text = URLDecoder.decode(spost_text,"UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
+
+            ptime = Long.parseLong((stime));
+
+
 
             TimeAndDate timeAndDate = new TimeAndDate();
             String nowtime = timeAndDate.time();
+
+            ntime = Long.parseLong(nowtime);
+
             String nowDate = timeAndDate.date();
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                 nextday = timeAndDate.today(sdate);
+            }
 
             if (nowDate.equals(sdate)){
                 long iTime = Integer.parseInt(stime);
@@ -91,7 +111,22 @@ public class Recycleview_item {
                 String time =  timeAndDate.formatTime(post_time);
 
                 myviewholder.date.setText(""+time);
-            }else {
+
+
+            } else if (nowDate.equals(nextday)) {
+                if (ntime > ptime){
+
+                    myviewholder.date.setText(""+sdate);
+
+                }else {
+                    long new_time = 86400-ptime;
+                    new_time = new_time+ntime;
+                    String time =  timeAndDate.formatTime(new_time);
+                    myviewholder.date.setText(""+time);
+                }
+
+
+            } else {
                 myviewholder.date.setText(""+sdate);
             }
 
