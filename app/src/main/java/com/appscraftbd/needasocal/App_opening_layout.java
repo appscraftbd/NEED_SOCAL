@@ -1,6 +1,10 @@
 package com.appscraftbd.needasocal;
 
+import static java.security.AccessController.getContext;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -108,6 +112,7 @@ public class App_opening_layout extends AppCompatActivity {
                             sqlLite.data_delete();
                             Intent sign = new Intent(App_opening_layout.this, Login_from.class);
                             startActivity(sign);
+
                         }else {
                             ////////////////////////////////////////////
                             setData(response);
@@ -178,6 +183,7 @@ public class App_opening_layout extends AppCompatActivity {
         Intent intent = new Intent(App_opening_layout.this, MainActivity.class);
         startActivity(intent);
         MainActivity.open=12;
+//        finish();
     }
 
 

@@ -6,58 +6,35 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.appscraftbd.needasocal.Api_Call_Home;
 import com.appscraftbd.needasocal.CreatePost;
 import com.appscraftbd.needasocal.RECYCLER_VIEW.Recycle_view_loading;
 import com.appscraftbd.needasocal.R;
-import com.appscraftbd.needasocal.RECYCLER_VIEW.Recycleview_item;
 import com.appscraftbd.needasocal.SQLite_data.SQL_LITE;
 import com.appscraftbd.needasocal.SQLite_data.User_InfoSQLite;
-import com.appscraftbd.needasocal.TimeAndDate;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class HomeFragment extends Fragment {
 
 
-    RecyclerView recyclerView;
+    public static RecyclerView recyclerView;
      public static SwipeRefreshLayout swipeRefreshLayout;
      ImageView uploard_post;
-     BottomSheetDialog bottomSheetDialog;
 
     String username, first_name, last_name,full_name, profile_pic ,password;
-    String post_date , post_time , post_like , post_comment , post_share , profile_mode;
-    Dialog dialog;
+
     SQL_LITE sqlLite;
 
 
@@ -91,6 +68,11 @@ public class HomeFragment extends Fragment {
             profile_pic = cursor.getString(4);
 
         }
+
+        recyclerView = view.findViewById(R.id.recyclehome);
+        Recycle_view_loading globalRecycleView = new Recycle_view_loading();
+        globalRecycleView.recycle_work(getContext(),recyclerView);
+        getRecycleCall();
 
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -127,12 +109,11 @@ public class HomeFragment extends Fragment {
         });
 
 
-        recyclerView = view.findViewById(R.id.recyclehome);
+//        recyclerView = view.findViewById(R.id.recyclehome);
+//        Recycle_view_loading globalRecycleView = new Recycle_view_loading();
+//        globalRecycleView.recycle_work(getContext(),recyclerView);
+//        getRecycleCall();
 
-        Recycle_view_loading globalRecycleView = new Recycle_view_loading();
-        globalRecycleView.recycle_work(getContext(),recyclerView);
-
-        getRecycleCall();
 
 
 
@@ -145,7 +126,7 @@ public class HomeFragment extends Fragment {
     //////////////////////
 
 
-    public  void getRecycleCall(){
+    public void getRecycleCall(){
         sqlLite = new SQL_LITE(getContext());
         Cursor cursor1 = sqlLite.data_result();
 
@@ -159,6 +140,8 @@ public class HomeFragment extends Fragment {
         }
 
     }
+
+
 
 
 }

@@ -7,13 +7,21 @@
     android:background="#12141C"
     tools:context=".MainActivity">
 
-    <androidx.viewpager2.widget.ViewPager2
+<!--    <androidx.viewpager2.widget.ViewPager2-->
+<!--        android:id="@+id/viewpage"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_above="@id/nav_bar"-->
+<!--        android:layout_marginBottom="-5dp"-->
+<!--         />-->
+
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@id/nav_bar"
         android:layout_marginBottom="-5dp"
-         />
+        />
 
 
     <androidx.cardview.widget.CardView
@@ -26,6 +34,7 @@
         android:layout_marginRight="12dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="2dp"
+        android:animateLayoutChanges="true"
         >
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout"
@@ -34,11 +43,10 @@
             app:tabIconTint="@drawable/bottom_item_color"
             app:tabMode="fixed"
             android:background="#00FFFFFF"
-            app:tabRippleColor="@null"
 
             >
+
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/hometabitem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/home_icone"
@@ -63,6 +71,9 @@
                 android:layout_height="wrap_content"
                 android:icon="@drawable/more_icone"
                 />
+
+
+
         </com.google.android.material.tabs.TabLayout>
 
     </androidx.cardview.widget.CardView>

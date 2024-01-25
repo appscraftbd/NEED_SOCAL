@@ -4,17 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
-
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.widget.Toast;
-
 import com.appscraftbd.needasocal.Login.Login_from;
 import com.appscraftbd.needasocal.SQLite_data.SQL_LITE;
 import com.appscraftbd.needasocal.fragment.AboutFragment;
@@ -28,15 +25,15 @@ public class MainActivity extends AppCompatActivity {
 
 
     private String user, pass;
-    private TabLayout tabLayout;
-    private ViewPager2 viewPager2;
+    TabLayout tabLayout;
+    private   ViewPager viewPager;
     private int tab_count = 0;
-    private int tab_possition = 0;
+    public  int tab_possition = 0;
 
     public static int open = 0;
 
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "ResourceType", "WrongViewCast"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
@@ -49,12 +46,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
         ////android rotating off
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        viewPager2 = findViewById(R.id.viewpage);
+
+
+        viewPager = findViewById(R.id.viewpage);
         tabLayout = findViewById(R.id.tablayout);
+
+
 
         /////////MY sql lite database create
         SQL_LITE sqlLite = new SQL_LITE(MainActivity.this);
@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         try {
+
+
             ///////////////
             if (user.length() <= 3) {
                 Intent sign = new Intent(MainActivity.this, Login_from.class);
@@ -93,37 +95,35 @@ public class MainActivity extends AppCompatActivity {
             } else {
 
                 ///////////////////
-                tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
+                tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
                     @Override
                     public void onTabSelected(TabLayout.Tab tab) {
-
                         if (tab.getPosition() ==0){
                             tab_count = 0;
                             tab_possition = 1;
-                            viewPager2.setCurrentItem(tab.getPosition());
+                            viewPager.setCurrentItem(tab.getPosition());
 
                         } else if (tab.getPosition()==1) {
                             tab_count = 0;
                             tab_possition = 2;
-                            viewPager2.setCurrentItem(tab.getPosition());
+                            viewPager.setCurrentItem(tab.getPosition());
 
                         } else if (tab.getPosition()==2) {
                             tab_count = 0;
                             tab_possition = 3;
-                            viewPager2.setCurrentItem(tab.getPosition());
+                            viewPager.setCurrentItem(tab.getPosition());
 
                         } else if (tab.getPosition()==3) {
                             tab_count = 0;
                             tab_possition = 4;
-                            viewPager2.setCurrentItem(tab.getPosition());
+                            viewPager.setCurrentItem(tab.getPosition());
 
                         } else if (tab.getPosition()==4) {
                             tab_count = 0;
                             tab_possition = 5;
-                            viewPager2.setCurrentItem(tab.getPosition());
+                            viewPager.setCurrentItem(tab.getPosition());
                         }
-
                     }
 
                     @Override
@@ -134,32 +134,13 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onTabReselected(TabLayout.Tab tab) {
 
-                        if (tab.getPosition()==0){
-                            if(tab_count >2){
-                                HomeFragment homeFragment = new HomeFragment();
-//                                homeFragment.homeRefreshing();
-                            }
-                            tab_count = tab_count+2;
-                        }else if (tab.getPosition()==1) {
-                            if(tab_count >2){
-                                Toast.makeText(MainActivity.this,"global",Toast.LENGTH_SHORT).show();
-                            }
-                            tab_count = tab_count+2;
-                        }
-
-
                     }
                 });
 
-
-
-
-                viewPager2.setAdapter(new FragmentStateAdapter(MainActivity.this) {
+                viewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
                     @NonNull
                     @Override
-                    public Fragment createFragment(int position) {
-
-
+                    public Fragment getItem(int position) {
                         switch (position){
 
                             case (0):
@@ -197,23 +178,25 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public int getItemCount() {
+                    public int getCount() {
                         return 5;
                     }
-
-                });
-
-                viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-                    @Override
-                    public void onPageSelected(int position) {
-                        super.onPageSelected(position);
-                        tabLayout.getTabAt(position).select();
-
-                    }
                 });
 
 
 
+                viewPager.setOffscreenPageLimit(5);
+                tabLayout.setTabMode(TabLayout.MODE_FIXED);
+                tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+                tabLayout.setupWithViewPager(viewPager);
+                tabLayout.getTabAt(0).setIcon(R.drawable.home_icone);
+                tabLayout.getTabAt(1).setIcon(R.drawable.global_icone);
+                tabLayout.getTabAt(2).setIcon(R.drawable.profile_icone);
+                tabLayout.getTabAt(3).setIcon(R.drawable.notification_icone);
+                tabLayout.getTabAt(4).setIcon(R.drawable.more_icone);
+
+
+                //////////////////
             }
         }catch (Exception e){
 
@@ -222,14 +205,13 @@ public class MainActivity extends AppCompatActivity {
 
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-
     @Override
     public void onBackPressed() {
 
         if(tab_possition >1){
             tab_count = 0;
             tab_count = tab_count + 4;
-            viewPager2.setCurrentItem(0);
+            viewPager.setCurrentItem(0);
         }else {
             if(open>0){
                 super.onBackPressed();

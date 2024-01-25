@@ -2,8 +2,8 @@ package com.appscraftbd.needasocal;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.widget.Toast;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -13,7 +13,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.appscraftbd.needasocal.RECYCLER_VIEW.Recycleview_item;
+import com.appscraftbd.needasocal.Adapter.PostAdapter;
+import com.appscraftbd.needasocal.Model.PostModel;
 import com.appscraftbd.needasocal.SQLite_data.SQL_LITE;
 
 import org.json.JSONArray;
@@ -28,7 +29,7 @@ public class Api_Call_Home {
     String DATA_INFO = "";
     Context context ;
     HashMap<String,String> hashMap ;
-    ArrayList <HashMap <String,String>> arrayList = new ArrayList<>();
+    ArrayList<PostModel> itemList = new ArrayList<>();
 
     RecyclerView recyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -76,33 +77,22 @@ public class Api_Call_Home {
                                 String Profile_mode = jsonObject.getString("Profile_mode");
 
 
-                                hashMap = new HashMap<>();
-                                hashMap.put("Id",Id);
-                                hashMap.put("Name",name);
-                                hashMap.put("Profile_pic",Profile_pic);
-                                hashMap.put("Post_text",Post_text);
-                                hashMap.put("Post_time",Post_time);
-                                hashMap.put("Post_date",Post_date);
-                                hashMap.put("Like_count",Like_count);
-                                hashMap.put("Comment_count",Comment_count);
-                                hashMap.put("Share_count",Share_count);
-                                hashMap.put("Profile_mode",Profile_mode);
-                                arrayList.add(hashMap);
 
+                                itemList.add(new PostModel(Id,"",""+name,
+                                        ""+Post_date,""+Post_time,""+Post_text));
 
                             }
-
-
 
                         } catch (JSONException e) {
                             new RuntimeException(e);
 
                         }
 
-                        Recycleview_item recycleviewItem = new Recycleview_item(context,arrayList,recyclerView);
-//                        Recycleview_item.hashMap=hashMap;
-//                        Recycleview_item.arrayList=arrayList;
                         swipeRefreshLayout.setRefreshing(false);
+                        PostAdapter postAdapter = new PostAdapter(context,itemList);
+                        recyclerView.setAdapter(postAdapter);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
 
 
 
@@ -119,9 +109,6 @@ public class Api_Call_Home {
         queue.add(stringRequest);
 
 
-    }
-    public ArrayList getArray(){
-        return arrayList ;
     }
 
     public HashMap getHashmap(){
