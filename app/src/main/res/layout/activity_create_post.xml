@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreatePost"
-    android:background="#12141C"
+    android:background="@color/back"
     tools:ignore="MissingDefaultResource"
     android:orientation="vertical">
 
@@ -166,7 +166,7 @@
                         android:gravity="start"
                         android:textColor="#CCCCCC"
                         android:scrollbars = "vertical"
-                        android:background="#12141C"
+                        android:background="@color/back"
                         android:layout_margin="10dp"
                         />
                     <LinearLayout

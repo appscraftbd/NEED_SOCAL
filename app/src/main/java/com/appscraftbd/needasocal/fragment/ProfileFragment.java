@@ -27,37 +27,37 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-
-        username = view.findViewById(R.id.username);
-        fullname = view.findViewById(R.id.full_name);
-        bio_info = view.findViewById(R.id.bio_info);
-        work_info = view.findViewById(R.id.work_info);
-        education_info = view.findViewById(R.id.education_info);
-        link = view.findViewById(R.id.link);
-
-        User_InfoSQLite userInfoSQLite = new User_InfoSQLite(getContext());
-
-        Cursor cursor = userInfoSQLite.getShowData();
-
-        while (cursor.moveToNext()){
-             susername = cursor.getString(1);
-             sfname = cursor.getString(2);
-             slname = cursor.getString(3);
-
-             sbio_info = cursor.getString(5);
-             seducation_info = cursor.getString(6);
-             swork_info = cursor.getString(7);
-             slink = cursor.getString(8);
-
-        }
-
-        fullname.setText(""+sfname+" "+slname);
-        username.setText("@"+susername);
-
-        bio_info.setText(""+sbio_info);
-        education_info.setText(""+seducation_info);
-        work_info.setText(""+swork_info);
-        link.setText(""+slink);
+//
+//        username = view.findViewById(R.id.username);
+//        fullname = view.findViewById(R.id.full_name);
+//        bio_info = view.findViewById(R.id.bio_info);
+//        work_info = view.findViewById(R.id.work_info);
+//        education_info = view.findViewById(R.id.education_info);
+//        link = view.findViewById(R.id.link);
+//
+//        User_InfoSQLite userInfoSQLite = new User_InfoSQLite(getContext());
+//
+//        Cursor cursor = userInfoSQLite.getShowData();
+//
+//        while (cursor.moveToNext()){
+//             susername = cursor.getString(1);
+//             sfname = cursor.getString(2);
+//             slname = cursor.getString(3);
+//
+//             sbio_info = cursor.getString(5);
+//             seducation_info = cursor.getString(6);
+//             swork_info = cursor.getString(7);
+//             slink = cursor.getString(8);
+//
+//        }
+//
+//        fullname.setText(""+sfname+" "+slname);
+//        username.setText("@"+susername);
+//
+//        bio_info.setText(""+sbio_info);
+//        education_info.setText(""+seducation_info);
+//        work_info.setText(""+swork_info);
+//        link.setText(""+slink);
 
 
         return view;

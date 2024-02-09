@@ -2,10 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.NEEDASocal" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">#12141C</item>
+        <item name="colorPrimary">@color/back</item>
         <item name="colorAccent">#313545</item>
 
-        <item name="android:navigationBarColor">@color/navi_color</item>
+        <item name="android:navigationBarColor">@color/back</item>
 
 
 

@@ -1,4 +1,4 @@
-package com.appscraftbd.needasocal;
+package com.appscraftbd.needasocal.GetDataApi;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -13,8 +13,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.appscraftbd.needasocal.Adapter.PostAdapter;
-import com.appscraftbd.needasocal.Model.PostModel;
+import com.appscraftbd.needasocal.Adapter.GlobalPostAdapter;
+import com.appscraftbd.needasocal.Adapter.HomePostAdapter;
+import com.appscraftbd.needasocal.Model.GlobalPostModel;
+import com.appscraftbd.needasocal.Model.HomePostModel;
 import com.appscraftbd.needasocal.SQLite_data.SQL_LITE;
 
 import org.json.JSONArray;
@@ -24,17 +26,17 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Api_Call_Home {
+public class GetDataFor_Home {
 
     String DATA_INFO = "";
     Context context ;
     HashMap<String,String> hashMap ;
-    ArrayList<PostModel> itemList = new ArrayList<>();
+    ArrayList<HomePostModel> itemList = new ArrayList<>();
 
     RecyclerView recyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
     public static String surl;
-    public Api_Call_Home(String url, Context context, RecyclerView recyclerView, SwipeRefreshLayout swipeRefreshLayout){
+    public GetDataFor_Home(String url, Context context, RecyclerView recyclerView, SwipeRefreshLayout swipeRefreshLayout){
         this.context=context;
         this.recyclerView = recyclerView;
         this.swipeRefreshLayout = swipeRefreshLayout;
@@ -78,7 +80,7 @@ public class Api_Call_Home {
 
 
 
-                                itemList.add(new PostModel(Id,"",""+name,
+                                itemList.add(new HomePostModel(Id,"",""+name,
                                         ""+Post_date,""+Post_time,""+Post_text));
 
                             }
@@ -89,8 +91,8 @@ public class Api_Call_Home {
                         }
 
                         swipeRefreshLayout.setRefreshing(false);
-                        PostAdapter postAdapter = new PostAdapter(context,itemList);
-                        recyclerView.setAdapter(postAdapter);
+                        HomePostAdapter homePostAdapter = new HomePostAdapter (context,itemList);
+                        recyclerView.setAdapter(homePostAdapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
 

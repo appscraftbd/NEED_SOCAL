@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         app:cardCornerRadius="15dp"
-        android:backgroundTint="#101219"
+        android:backgroundTint="@color/back"
         android:layout_margin="10dp"
         >
 

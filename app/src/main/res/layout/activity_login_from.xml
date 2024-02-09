@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#12141C"
+    android:background="@color/back"
     android:orientation="vertical"
     tools:context=".Login.Login_from">
 

@@ -1,6 +1,6 @@
 package com.appscraftbd.needasocal.Model;
 
-public class PostModel {
+public class GlobalPostModel {
 
     private String post_id;
     private String username;
@@ -10,7 +10,7 @@ public class PostModel {
     private String post_body;
 
 
-    public PostModel(String post_id, String username, String full_name, String post_date, String post_time, String post_body) {
+    public GlobalPostModel(String post_id, String username, String full_name, String post_date, String post_time, String post_body) {
         this.post_id = post_id;
         this.username = username;
         this.full_name = full_name;

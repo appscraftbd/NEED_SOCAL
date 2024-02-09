@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.appscraftbd.needasocal.Model.PostModel;
+import com.appscraftbd.needasocal.Model.GlobalPostModel;
 import com.appscraftbd.needasocal.R;
 import com.appscraftbd.needasocal.READMORE;
 import com.appscraftbd.needasocal.TimeAndDate;
@@ -22,16 +22,16 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Post_item> {
+public class GlobalPostAdapter extends RecyclerView.Adapter<GlobalPostAdapter.Post_item> {
 
     Context context;
-    ArrayList <PostModel> arrayList;
+    ArrayList <GlobalPostModel> arrayList;
 
     String nextday;
     long ntime,ptime;
 
 
-    public PostAdapter(Context context, ArrayList<PostModel> arrayList) {
+    public GlobalPostAdapter(Context context, ArrayList<GlobalPostModel> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }
@@ -48,9 +48,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Post_item> {
             fname = itemView.findViewById(R.id.full_name);
             postText = itemView.findViewById(R.id.post_text);
             date = itemView.findViewById(R.id.date);
-            liketext = itemView.findViewById(R.id.liketext);
-            commentTv = itemView.findViewById(R.id.comment_tv);
-            shareTV = itemView.findViewById(R.id.share_tv);
+            liketext = itemView.findViewById(R.id.liketv);
+            commentTv = itemView.findViewById(R.id.commenttv);
+            shareTV = itemView.findViewById(R.id.sharetv);
             tvReadMore = itemView.findViewById(R.id.tvReadMore);
 
             like_btn = itemView.findViewById(R.id.likeButton);
@@ -75,13 +75,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Post_item> {
 
 
 
-        PostModel postModel = arrayList.get(position);
+        GlobalPostModel globalPostModel = arrayList.get(position);
 
-        String sid = postModel.getPost_id();
-        String sname= postModel.getFull_name();
-        String spost_text =postModel.getPost_body();
-        String stime = postModel.getPost_time();
-        String sdate = postModel.getPost_date();
+        String sid = globalPostModel.getPost_id();
+        String sname= globalPostModel.getFull_name();
+        String spost_text = globalPostModel.getPost_body();
+        String stime = globalPostModel.getPost_time();
+        String sdate = globalPostModel.getPost_date();
 
         String slink_count = "";
         String scomment_count = "";

@@ -3,7 +3,6 @@ package com.appscraftbd.needasocal.fragment;
 import static androidx.swiperefreshlayout.widget.SwipeRefreshLayout.*;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -17,13 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.appscraftbd.needasocal.Api_Call_Home;
+import com.appscraftbd.needasocal.GetDataApi.GetDataFor_Home;
 import com.appscraftbd.needasocal.CreatePost;
 import com.appscraftbd.needasocal.RECYCLER_VIEW.Recycle_view_loading;
 import com.appscraftbd.needasocal.R;
 import com.appscraftbd.needasocal.SQLite_data.SQL_LITE;
 import com.appscraftbd.needasocal.SQLite_data.User_InfoSQLite;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 
 public class HomeFragment extends Fragment {
@@ -86,7 +84,7 @@ public class HomeFragment extends Fragment {
                     String pass = cursor1.getString(2);
 
                     String url = "https://mdnahidhossen.com/need/getUpoloadPost.php?uid="+username+"&pass="+pass;
-                    Api_Call_Home apiCall = new Api_Call_Home(url,getContext(),recyclerView,swipeRefreshLayout);
+                    GetDataFor_Home apiCall = new GetDataFor_Home(url,getContext(),recyclerView,swipeRefreshLayout);
                     break;
                 }
             }
@@ -109,14 +107,6 @@ public class HomeFragment extends Fragment {
         });
 
 
-//        recyclerView = view.findViewById(R.id.recyclehome);
-//        Recycle_view_loading globalRecycleView = new Recycle_view_loading();
-//        globalRecycleView.recycle_work(getContext(),recyclerView);
-//        getRecycleCall();
-
-
-
-
         return view;
 
     }
@@ -135,7 +125,7 @@ public class HomeFragment extends Fragment {
             String pass = cursor1.getString(2);
 
             String url = "https://mdnahidhossen.com/need/getUpoloadPost.php?uid="+user+"&pass="+pass;
-            Api_Call_Home apiCall = new Api_Call_Home(url,getContext(),recyclerView,swipeRefreshLayout);
+            GetDataFor_Home getDataForHome = new GetDataFor_Home(url,getContext(),recyclerView,swipeRefreshLayout);
             break;
         }
 

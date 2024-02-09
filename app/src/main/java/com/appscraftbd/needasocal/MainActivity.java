@@ -2,6 +2,7 @@ package com.appscraftbd.needasocal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.splashscreen.SplashScreen;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -12,6 +13,10 @@ import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.TranslateAnimation;
+import android.widget.RelativeLayout;
+
 import com.appscraftbd.needasocal.Login.Login_from;
 import com.appscraftbd.needasocal.SQLite_data.SQL_LITE;
 import com.appscraftbd.needasocal.fragment.AboutFragment;
@@ -186,6 +191,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                 viewPager.setOffscreenPageLimit(5);
+                viewPager.setCurrentItem(0,false);
+                viewPager.clearAnimation();
                 tabLayout.setTabMode(TabLayout.MODE_FIXED);
                 tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
                 tabLayout.setupWithViewPager(viewPager);
@@ -221,4 +228,23 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    public void slideUp(RelativeLayout view){
+        TranslateAnimation animate = new TranslateAnimation(0, 0,
+                view.getHeight(), 0);
+        animate.setDuration(500);
+        animate.setFillAfter(true);
+        view.startAnimation(animate);
+        view.setVisibility(View.VISIBLE);
+    }
+    // slide the view from its current position to below itself
+    public void slideDown(RelativeLayout view){
+        TranslateAnimation animate = new TranslateAnimation(0, 0,
+                0, view.getHeight());
+        animate.setDuration(500);
+        animate.setFillAfter(true);
+        view.startAnimation(animate);
+        view.setVisibility(View.GONE);
+    }
+
 }
